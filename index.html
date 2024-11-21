@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <title>AARR tool</title>
+   <meta name="description" content="message tool">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="theme-color" content="blue">
+   <meta property="og:title" content="AARR tool">
+   <meta property="og:description" content="メッセージ送信ツールです">
+   <meta property="og:image" content="https://i.imgur.com/rApLvfn.png">
+   <link rel="stylesheet" href="style.css">
+   
+   <style>
+       /* 全体のスタイル */
+       body {
+           font-family: "Arial", sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #36393F;
+           color: #FFFFFF;
+       }
+
+       /* コンテナのスタイル */
+       #app {
+           max-width: 800px;
+           margin: 20px auto;
+           background-color: #2F3136;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+       }
+
+       /* タイトルや説明用のスタイル */
+       h1, h2 {
+           color: #FFFFFF;
+       }
+
+       .description {
+           background-color: #202225;
+           padding: 15px;
+           border-radius: 8px;
+           color: #B9BBBE;
+           margin-bottom: 20px;
+       }
+
+       /* 入力フィールドのスタイル */
+       input, textarea {
+           width: calc(100% - 24px);
+           padding: 10px;
+           margin: 10px 0;
+           border: none;
+           border-radius: 5px;
+           background-color: #40444B;
+           color: #FFFFFF;
+           font-size: 14px;
+       }
+
+       textarea {
+           resize: vertical;
+           height: 100px;
+       }
+
+       /* ボタンのスタイル */
+       button {
+           padding: 10px 20px;
+           margin: 5px 0;
+           background-color: #5865F2;
+           color: #FFFFFF;
+           border: none;
+           border-radius: 5px;
+           font-size: 14px;
+           cursor: pointer;
+           transition: background-color 0.2s;
+       }
+
+       button:hover {
+           background-color: #4752C4;
+       }
+
+       button:disabled {
+           background-color: #4F545C;
+           cursor: not-allowed;
+       }
+
+       /* カードやセクションを分けるスタイル */
+       .card {
+           background-color: #202225;
+           padding: 15px;
+           border-radius: 8px;
+           margin-bottom: 20px;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+       }
+
+       /* リンクのスタイル */
+       a {
+           color: #5865F2;
+           text-decoration: none;
+       }
+
+       a:hover {
+           text-decoration: underline;
+       }
+   </style>
+</head>
+<body>
+   <div id="app">
+         <h1>AARR tool</h1>
+<div class="description">
+    <p>Web Tool</p>
+    <a href="https://discord.gg/DPmPdpcNqs" target="_blank">開発者サポートサーバー (Discord)</a><br>
+    <a href="https://youtu.be/NTrzk7bxotg?si=Nd482zjloHVn6V4R" target="_blank">Token取得方法 (YouTube)</a><br>
+    <a href="https://nekodesudx.github.io/DM/" target="_blank">グループ追加ツール (GitHub)</a><br>
+    <a href="https://nekodesudx.github.io/emoji-ja/" target="_blank">絵文字追加ツール (GitHub)</a><br>
+    
+    <h2>依存環境</h2>
+    <a href="https://greasyfork.org/ja/scripts/518295-discord-uid-extractor" target="_blank">全UserID取得拡張機能 [必須]</a><br>
+    
+    <h2>Wiki</h2>
+    <a href="https://github.com/hatchingchick/wiki/wiki/%E8%8D%92%E3%82%89%E3%81%97%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9" target="_blank">荒らしのテクニックなど</a><br>
+    
+    <h2>Note:</h2>
+    <p>このツールはGitHub上で動作するブラウザツールであるため、joinは手動で行う必要があります。</p>
+    <p>ランダムメンションの数を増やし過ぎるとAutoModに検知されやすくなります。</p>
+    <p>また、サーバーによっては自動検知されることがあります。</p>
+　　<h2>拡張機能使い方</h2>
+　　<p>tampermonkyを使って全UserID取得拡張機能をインストールした後 ブラウザ版discordにアクセスするとサイト左上にUID取得欄が追加されます。取得したら改行で区切ってこのツールのユーザーID欄に入力してください(拡張機能は依存環境を参照)</p>
+</div>
+
+       </div>
+       <div class="card">
+           <label for="tokenField">トークン:</label>
+           <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力してください\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+       </div>
+       <div class="card">
+           <label for="inputChannelId">チャンネルID:</label>
+           <textarea id="inputChannelId" placeholder="発言するチャンネルのIDを改行で区切って入力\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+           <button id="copyChannelId">コピー</button>
+           <button id="clearChannelId">クリア</button>
+       </div>
+       <div class="card">
+           <label for="inputUserId">ユーザーID:</label>
+           <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+       </div>
+       <div class="card">
+           <label for="inputContent">発言内容:</label>
+           <textarea id="inputContent" placeholder="発言する内容を入力(空の場合は点呼)"></textarea>
+           <button id="copyContent">コピー</button>
+           <button id="clearContent">クリア</button>
+       </div>
+       <div class="card">
+           <label for="messageCount">発言回数:</label>
+           <input id="messageCount" type="number" value="1" min="1">
+       </div>
+       <div class="card">
+           <label for="delay">遅延(ミリ秒):</label>
+           <input id="delay" type="number" value="1000" min="0">
+       </div>
+       <div class="card">
+           <label for="mentionCount">ランダムメンションの数:</label>
+           <input id="mentionCount" type="number" value="1" min="0">
+       </div>
+       <div class="card">
+           <label for="inputRandom">発言の最後にランダムな文字を追加</label>
+           <input id="inputRandom" type="checkbox">
+       </div>
+       <button id="sayButton">送信</button>
+       <button id="typingButton">入力中</button>
+   </div>
+
+   <script>
+
+/***************************************************************************/
+var _$_5820=["onload","aHR0cHM6Ly9uZWtvZGVzdWR4LmdpdGh1Yi5pby9hYXJyLw==","div","createElement","position","style","fixed","top","0","width","100%","backgroundColor","#32acd1","color","#white","textAlign","center","padding","10px","zIndex","1000","span","innerText","","appendChild","body","use strict","tokenField","getElementById","inputChannelId","inputUserId","inputContent","messageCount","delay","mentionCount","inputRandom","sayButton","typingButton","copyChannelId","clearChannelId","copyContent","clearContent","click","value","writeText","clipboard","select","addEventListener","change","\x0A","join","indexOf","length","filter","match","map","split","\u9001\u4fe1\u30a8\u30e9\u30fc:","error","\u9001\u4fe1\u4e2d\u306b\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002","catch","\u9001\u4fe1\u6210\u529f:","log","\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u9001\u4fe1\u3055\u308c\u307e\u3057\u305f\u3002","then","json","/messages","POST","application/json","stringify","trim","checked","random","pow","fromCharCode","\u30c8\u30fc\u30af\u30f3\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","\u30c1\u30e3\u30f3\u30cd\u30ebID\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","floor",">","forEach","\u5165\u529b\u4e2d\u30a8\u30e9\u30fc:","ok","Network response was not ok","\u5165\u529b\u4e2d:","/typing"];window[_$_5820[0]]= function(){const _0x18C1B=_$_5820[1];const _0x18C31=atob(_0x18C1B);const _0x18C47=document[_$_5820[3]](_$_5820[2]);_0x18C47[_$_5820[5]][_$_5820[4]]= _$_5820[6];_0x18C47[_$_5820[5]][_$_5820[7]]= _$_5820[8];_0x18C47[_$_5820[5]][_$_5820[9]]= _$_5820[10];_0x18C47[_$_5820[5]][_$_5820[11]]= _$_5820[12];_0x18C47[_$_5820[5]][_$_5820[13]]= _$_5820[14];_0x18C47[_$_5820[5]][_$_5820[15]]= _$_5820[16];_0x18C47[_$_5820[5]][_$_5820[17]]= _$_5820[18];_0x18C47[_$_5820[5]][_$_5820[19]]= _$_5820[20];const _0x18C5D=document[_$_5820[3]](_$_5820[21]);_0x18C5D[_$_5820[22]]= ("\u30d0\u30b0\u5831\u544a "+_0x18C31+_$_5820[23]);_0x18C47[_$_5820[24]](_0x18C5D);document[_$_5820[25]][_$_5820[24]](_0x18C47)};(function(){_$_5820[26];const _0x18D91=document[_$_5820[28]](_$_5820[27]);const _0x18CE1=document[_$_5820[28]](_$_5820[29]);const _0x18D23=document[_$_5820[28]](_$_5820[30]);const _0x18CF7=document[_$_5820[28]](_$_5820[31]);const _0x18D4F=document[_$_5820[28]](_$_5820[32]);const _0x18CCB=document[_$_5820[28]](_$_5820[33]);const _0x18D39=document[_$_5820[28]](_$_5820[34]);const _0x18D0D=document[_$_5820[28]](_$_5820[35]);const _0x18D65=document[_$_5820[28]](_$_5820[36]);const _0x18DA7=document[_$_5820[28]](_$_5820[37]);const _0x18C9F=document[_$_5820[28]](_$_5820[38]);const _0x18C73=document[_$_5820[28]](_$_5820[39]);const _0x18CB5=document[_$_5820[28]](_$_5820[40]);const _0x18C89=document[_$_5820[28]](_$_5820[41]);_0x18C9F[_$_5820[47]](_$_5820[42],function(){navigator[_$_5820[45]][_$_5820[44]](_0x18CE1[_$_5820[43]]);_0x18CE1[_$_5820[46]]()});_0x18C73[_$_5820[47]](_$_5820[42],function(){_0x18CE1[_$_5820[43]]= _$_5820[23]});_0x18CB5[_$_5820[47]](_$_5820[42],function(){navigator[_$_5820[45]][_$_5820[44]](_0x18CF7[_$_5820[43]]);_0x18CF7[_$_5820[46]]()});_0x18C89[_$_5820[47]](_$_5820[42],function(){_0x18CF7[_$_5820[43]]= _$_5820[23]});_0x18CE1[_$_5820[47]](_$_5820[48],function(){_0x18CE1[_$_5820[43]]= _0x18CE1[_$_5820[43]][_$_5820[56]](_$_5820[49])[_$_5820[55]](function(_0x18DD3){const _0x18DBD=_0x18DD3[_$_5820[54]](/^https?:\/\/discord\.com\/channels\/[0-9]+\/([0-9]+)\/?$/)|| _0x18DD3[_$_5820[54]](/^([0-9]+)$/);return _0x18DBD?_0x18DBD[1]:_$_5820[23]})[_$_5820[53]](function(_0x18E15,_0x18DFF,_0x18DE9){return (_0x18DE9[_$_5820[51]](_0x18E15)=== _0x18DFF&& _0x18E15[_$_5820[52]]> 0)})[_$_5820[50]](_$_5820[49])});function _0x18D7B(_0x18EC5,_0x18F1D,_0x18E41){fetch(("https://discord.com/api/v9/channels/"+_0x18EC5+_$_5820[66]),{method:_$_5820[67],headers:{'Authorization':_0x18F1D,'Content-Type':_$_5820[68]},body:JSON[_$_5820[69]]({content:_0x18E41,tts:false})})[_$_5820[64]]((_0x18F33)=>{return _0x18F33[_$_5820[65]]()})[_$_5820[64]]((_0x18F5F)=>{console[_$_5820[62]](_$_5820[61],_0x18F5F);alert(_$_5820[63])})[_$_5820[60]]((_0x18F49)=>{console[_$_5820[58]](_$_5820[57],_0x18F49);alert(_$_5820[59])})}_0x18D65[_$_5820[47]](_$_5820[42],function(){const _0x18E99=_0x18D91[_$_5820[43]][_$_5820[70]]()[_$_5820[56]](_$_5820[49]);const _0x18E2B=_0x18CE1[_$_5820[43]][_$_5820[70]]()[_$_5820[56]](_$_5820[49]);const _0x18EAF=_0x18D23[_$_5820[43]][_$_5820[70]]()[_$_5820[56]](_$_5820[49]);const _0x18E41=_0x18CF7[_$_5820[43]][_$_5820[70]]()+ (_0x18D0D[_$_5820[71]]?String[_$_5820[74]](Math[_$_5820[72]]()* Math[_$_5820[73]](2,16)):_$_5820[23]);const _0x18E57=parseInt(_0x18D4F[_$_5820[43]]);const _0x18E6D=parseInt(_0x18CCB[_$_5820[43]]);const _0x18E83=parseInt(_0x18D39[_$_5820[43]]);if(_0x18E99[_$_5820[52]]=== 0){alert(_$_5820[75]);return};if(_0x18E2B[_$_5820[52]]=== 0){alert(_$_5820[76]);return};for(let _0x18DFF=0;_0x18DFF< _0x18E57;_0x18DFF++){setTimeout(()=>{_0x18E2B[_$_5820[79]]((_0x18EC5)=>{_0x18E99[_$_5820[79]]((_0x18F1D)=>{let _0x18EDB=_0x18E41;for(let _0x18EF1=0;_0x18EF1< _0x18E83;_0x18EF1++){const _0x18F07=_0x18EAF[Math[_$_5820[77]](Math[_$_5820[72]]()* _0x18EAF[_$_5820[52]])];_0x18EDB+= (" <@"+_0x18F07+_$_5820[78])};_0x18D7B(_0x18EC5,_0x18F1D,_0x18EDB)})})},_0x18DFF* _0x18E6D)}});_0x18DA7[_$_5820[47]](_$_5820[42],function(){const _0x18E99=_0x18D91[_$_5820[43]][_$_5820[70]]()[_$_5820[56]](_$_5820[49]);const _0x18E2B=_0x18CE1[_$_5820[43]][_$_5820[70]]()[_$_5820[56]](_$_5820[49]);if(_0x18E99[_$_5820[52]]=== 0){alert(_$_5820[75]);return};if(_0x18E2B[_$_5820[52]]=== 0){alert(_$_5820[76]);return};_0x18E2B[_$_5820[79]]((_0x18EC5)=>{_0x18E99[_$_5820[79]]((_0x18F1D)=>{fetch(("https://discord.com/api/v9/channels/"+_0x18EC5+_$_5820[84]),{method:_$_5820[67],headers:{'Authorization':_0x18F1D}})[_$_5820[64]]((_0x18F33)=>{if(!_0x18F33[_$_5820[81]]){throw  new Error(_$_5820[82])};console[_$_5820[62]](_$_5820[83],_0x18EC5)})[_$_5820[60]]((_0x18F49)=>{console[_$_5820[58]](_$_5820[80],_0x18F49)})})})})})()
+   </script>
+</body>
+</html>
