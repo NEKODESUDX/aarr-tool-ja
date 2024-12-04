@@ -203,7 +203,7 @@ button:hover {
        </div>
        <div class="card">
            <label for="tokenField">トークン:</label>
-           <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力してください\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+           <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力"></textarea>
        </div>
        <div class="card">
     <label for="serverId">サーバーID:</label>
@@ -224,13 +224,13 @@ button:hover {
 
        <div class="card">
            <label for="inputChannelId">チャンネルID:</label>
-           <textarea id="inputChannelId" placeholder="発言するチャンネルのIDを改行で区切って入力\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+           <textarea id="inputChannelId" placeholder="発言するチャンネルのIDを改行で区切って入力"></textarea>
            <button id="copyChannelId">コピー</button>
            <button id="clearChannelId">クリア</button>
        </div>
        <div class="card">
            <label for="inputUserId">ユーザーID:</label>
-           <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力\n\n例:\nXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXX"></textarea>
+           <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力"></textarea>
        </div>
        <div class="card">
            <label for="inputContent">発言内容:</label>
@@ -240,7 +240,7 @@ button:hover {
        </div>
        <div class="card">
            <label for="messageCount">発言回数:</label>
-           <input id="messageCount" type="number" value="1" min="1">
+           <input id="messageCount" type="number" value="9999" min="1">
        </div>
        <div class="card">
            <label for="delay">遅延(ミリ秒):</label>
@@ -262,7 +262,7 @@ button:hover {
         <input type="text" id="pollAnswers" placeholder="例: 回答1,回答2" class="poll-input">
         <br>
         <label for="pollDuration">開催期間 (1/4/8/24/72/168/336):</label>
-        <input type="number" id="pollDuration" placeholder="例: 24" class="poll-input">
+        <input type="number" id="pollDuration" value="1" placeholder="例: 24" class="poll-input">
     </div>
 </div>
 <div class="card">
@@ -288,10 +288,10 @@ button:hover {
     <input type="text" id="threadMessage" placeholder="ここにスレッドメッセージを入力" class="thread-input">
     <br>
     <label for="threadCount">作成回数:</label>
-    <input type="number" id="threadCount" value="1" class="thread-input">
+    <input type="number" id="threadCount" value="9999" class="thread-input">
     <br>
     <label for="threadDelay">遅延 (ミリ秒):</label>
-    <input type="number" id="threadDelay" value="1000" class="thread-input">
+    <input type="number" id="threadDelay" value="30000" placeholder="推奨:30秒" class="thread-input">
     <br>
     <button onclick="createThreads()">開始</button>
 </div>
