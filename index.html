@@ -12,165 +12,148 @@
    <link rel="stylesheet" href="style.css">
 
    <style>
-    
-       body {
-           font-family: "Arial", sans-serif;
-           margin: 0;
-           padding: 0;
-           background-color: #36393F;
-           color: #FFFFFF;
-       }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0f0f;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
 
-       
-       #app {
-           max-width: 800px;
-           margin: 20px auto;
-           background-color: #2F3136;
-           padding: 20px;
-           border-radius: 8px;
-           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-       }
+#app {
+    max-width: 800px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
 
-    
-       h1, h2 {
-           color: #FFFFFF;
-       }
+h1, h2 {
+    color: white;
+    margin: 0 0 10px;
+}
 
-       .description {
-           background-color: #202225;
-           padding: 15px;
-           border-radius: 8px;
-           color: #B9BBBE;
-           margin-bottom: 20px;
-       }
+.description {
+    background-color: #202225;
+    padding: 15px;
+    border-radius: 0;
+    margin-bottom: 20px;
+    color: #B9BBBE;
+}
 
-  
-       input, textarea {
-           width: calc(100% - 24px);
-           padding: 10px;
-           margin: 10px 0;
-           border: none;
-           border-radius: 5px;
-           background-color: #40444B;
-           color: #FFFFFF;
-           font-size: 14px;
-       }
+input, textarea {
+    width: 30%;
+    max-width: 400px;
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+    outline: none;
+}
 
-       textarea {
-           resize: vertical;
-           height: 100px;
-       }
+textarea {
+    resize: vertical;
+    height: 100px;
+}
 
-      
-       button {
-           padding: 10px 20px;
-           margin: 5px 0;
-           background-color: #5865F2;
-           color: #FFFFFF;
-           border: none;
-           border-radius: 5px;
-           font-size: 14px;
-           cursor: pointer;
-           transition: background-color 0.2s;
-       }
+button {
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
 
-       button:hover {
-           background-color: #4752C4;
-       }
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-       button:disabled {
-           background-color: #4F545C;
-           cursor: not-allowed;
-       }
+button:active {
+    background-color: #2e8b57;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}
 
-   
-       .card {
-           background-color: #202225;
-           padding: 15px;
-           border-radius: 8px;
-           margin-bottom: 20px;
-           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-       }
+button:disabled {
+    background-color: #4F545C;
+    cursor: not-allowed;
+    box-shadow: none;
+}
 
-    
-       a {
-           color: #5865F2;
-           text-decoration: none;
-       }
+.card {
+    background-color: #202225;
+    padding: 15px;
+    border-radius: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
-       a:hover {
-           text-decoration: underline;
-       }
+a {
+    color: #45a049;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #logContainer {
     max-height: 200px;
     overflow-y: auto;
-    background-color: #202225;
+    background-color: #333;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 0;
     margin-top: 20px;
+    color: white;
 }
-
-
 
 .poll-input {
-    width: calc(100% - 20px);
+    width: 30%;
+    max-width: 400px;
+    margin-top: 5px;
     padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #40444B;
-    color: #FFFFFF;
-    font-size: 14px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+    font-size: 16px;
 }
-
 
 #pollOptions input[type="checkbox"] {
     transform: scale(1.5);
     margin-right: 5px;
 }
 
-
 #pollOptions label {
     margin: 0;
     font-size: 16px;
-    color: #FFFFFF;
+    color: white;
 }
 
 #serverId {
-    width: calc(100% - 20px);
+    width: 30%;
+    max-width: 400px;
+    margin-top: 5px;
     padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #40444B;
-    color: #FFFFFF;
-    font-size: 14px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    color: white;
+    font-size: 16px;
 }
-
-button {
-    padding: 10px 20px;
-    background-color: #5865F2;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #4752C4;
-}
-
-
-.card {
-    background-color: #202225;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
 
 
    </style>
