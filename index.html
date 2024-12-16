@@ -264,66 +264,68 @@ a:hover {
        <button id="sayButton">送信開始(⚠️連打するとリクエストが2倍になります)</button>
        <button id="typingButton">入力中</button>
    </div>
-   <div class="card">
 
-    <label for="threadTitle">スレッドタイトル:</label>
-    <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
+    <div class="card">
+        <label for="threadTitle">スレッドタイトル:</label>
+        <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
+        <br>
+        <label for="threadMessage">スレッドのメッセージ:</label>
+        <input type="text" id="threadMessage" placeholder="ここにスレッドメッセージを入力" class="thread-input">
+        <br>
+        <label for="threadCount">作成回数:</label>
+        <input type="number" id="threadCount" value="9999" class="thread-input">
+        <br>
+        <label for="threadDelay">遅延 (ミリ秒):</label>
+        <input type="number" id="threadDelay" value="30000" placeholder="推奨:30秒" class="thread-input">
+        <br>
+        <label for="threadType">スレッドのタイプ:</label> 
+        <select id="threadType" class="thread-input">
+            <option value="normal">通常</option>
+            <option value="announcement">アナウンス</option>
+        </select>
+        <br>
+        <button onclick="createThreads()">スレッド送信開始</button>
+    </div>
     <br>
-    <label for="threadMessage">スレッドのメッセージ:</label>
-    <input type="text" id="threadMessage" placeholder="ここにスレッドメッセージを入力" class="thread-input">
-    <br>
-    <label for="threadCount">作成回数:</label>
-    <input type="number" id="threadCount" value="9999" class="thread-input">
-    <br>
-    <label for="threadDelay">遅延 (ミリ秒):</label>
-    <input type="number" id="threadDelay" value="30000" placeholder="推奨:30秒" class="thread-input">
-    <br>
-      <label for="threadType">スレッドのタイプ:</label> 
-      <select id="threadType" class="thread-input">
-         <option value="normal">通常</option>
-         <option value="announcement">アナウンス</option>
-    <button onclick="createThreads()">スレッド送信開始</button>
-</div>
-<div class="card">
-    <body>
-        <div class="container">
-            <p>イベント作成</p>
-           <p>⚠️エクスプレッション権限に未対応</p>
-            <div class="form-group">
-                <label for="guildId">サーバーID：</label>
-                <input type="text" id="guildId">
-            </div>
-            <div class="form-group">
-                <label for="eventName">イベント名：</label>
-                <input type="text" id="eventName">
-            </div>
-            <div class="form-group">
-                <label for="eventDescription">イベント概要：</label>
-                <textarea id="eventDescription" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="eventLocation">ロケーション：</label>
-                <input type="text" id="eventLocation">
-            </div>
-            <div class="form-group">
-                <label for="eventStartTime">開始日時(UTC標準時)：</label>
-                <input type="text" id="eventStartTime" value="2024-12-15T17:00:00Z">
-            </div>
-            <div class="form-group">
-                <label for="eventEndTime">終了日時(UTC標準時)：</label>
-                <input type="text" id="eventEndTime" value="2024-12-15T19:00:00Z">
-            </div>
-            <div class="form-group">
-                <label for="eventCount">イベント作成回数：</label>
-                <input type="number" id="eventCount" value="1">
-            </div>
-            <div class="form-group">
-                <label for="eventDelay">遅延時間（ミリ秒）：</label>
-                <input type="number" id="eventDelay" value="1000">
-            </div>
-            <button id="createEventsButton">イベントを作成</button>
-            <div id="status"></div>
+    <div class="card">
+        <p>イベント作成</p>
+        <p>⚠️エクスプレッション権限に未対応</p>
+        <div class="form-group">
+            <label for="guildId">サーバーID：</label>
+            <input type="text" id="guildId">
         </div>
+        <div class="form-group">
+            <label for="eventName">イベント名：</label>
+            <input type="text" id="eventName">
+        </div>
+        <div class="form-group">
+            <label for="eventDescription">イベント概要：</label>
+            <textarea id="eventDescription" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="eventLocation">ロケーション：</label>
+            <input type="text" id="eventLocation">
+        </div>
+        <div class="form-group">
+            <label for="eventStartTime">開始日時(UTC標準時)：</label>
+            <input type="text" id="eventStartTime" value="2024-12-15T17:00:00Z">
+        </div>
+        <div class="form-group">
+            <label for="eventEndTime">終了日時(UTC標準時)：</label>
+            <input type="text" id="eventEndTime" value="2024-12-15T19:00:00Z">
+        </div>
+        <div class="form-group">
+            <label for="eventCount">イベント作成回数：</label>
+            <input type="number" id="eventCount" value="1">
+        </div>
+        <div class="form-group">
+            <label for="eventDelay">遅延時間（ミリ秒）：</label>
+            <input type="number" id="eventDelay" value="1000">
+        </div>
+        <button id="createEventsButton">イベントを作成</button>
+        <div id="status"></div>
+    </div>
+    
 
      <div class="container">
             <form id="emojiForm">
