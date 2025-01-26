@@ -199,7 +199,7 @@ a:hover {
        <div class="card">
            <label for="inputUserId">ユーザーID:</label>
            <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力"></textarea>
-           <button id="fetchUserIds">アクティブユーザーID&チャンネルID取得</button>
+           <button id="fetchUserIds">アクティブユーザーID&チャンネル/メッセージID取得</button>
 <p>⚠️サーバーIDの入力が必要</p>
        </div>
     
@@ -207,6 +207,7 @@ a:hover {
       <label for="blacklistUID">ブラックリストUID:</label> 
       <textarea id="blacklistUID" placeholder="メンションしないユーザーのIDを改行で区切って入力"></textarea> 
    </div>
+   
        <div class="card">
            <label for="inputContent">発言内容:</label>
            <textarea id="inputContent" placeholder="発言する内容を入力(空の場合は点呼)"></textarea>
@@ -254,7 +255,22 @@ a:hover {
        <button id="sayButton">送信開始(⚠️連打するとリクエストが2倍になります)</button>
        <button id="typingButton">入力中</button>
    </div>
-
+ <div class="card">
+        <label for="messageIds">メッセージID:</label>
+        <textarea id="messageIds" placeholder="メッセージIDを改行で区切って入力"></textarea>
+    </div>
+    
+    <div class="card">
+        <label for="reactionEmojis">リアクション絵文字:</label>
+        <textarea id="reactionEmojis" placeholder="リアクションする絵文字をカンマ(,)区切りで入力"></textarea>
+    </div>
+    
+    <div class="card">
+        <label for="reactionDelay">リアクション遅延(ミリ秒):</label>
+        <input type="number" id="reactionDelay" value="1000" min="0">
+    </div>
+    
+    <button id="reactButton">リアクションを送信</button>
     <div class="card">
         <label for="threadTitle">スレッドタイトル:</label>
         <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
