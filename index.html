@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
    <meta charset="UTF-8">
-   <title>AARR tool</title>
+   <title>AARR Token Tool</title>
    <meta name="description" content="message tool">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="theme-color" content="blue">
@@ -167,52 +167,32 @@ button:disabled {
     </style>
 </head>
 <body>
-   <div id="app">
-         <h1>AARR tool</h1>
-<div class="description">
-     <p>Web Tool</p>
-    <a href="aboutDM.html" target="_blank">📨グループDM追加ツールはこちら (GitHub)</a><br>
-    <a href="about5.html" target="_blank">🚀AARR拡張機能一覧</a><br>
-   
-    <h2>ID取得拡張機能</h2>
-    <p>拡張機能を使う事でユーザーID取得が出来ます</p>
-    <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
-    <a href="https://greasyfork.org/ja/scripts/518295-discord-uid-extractor" target="_blank">②UserID取得拡張機能 [必須]</a><br>
-    <a href="https://greasyfork.org/ja/scripts/518683-discord-channel-id-extractor/code" target="_blank">③channel id取得拡張機能 [推奨]</a><br>
-   
-    <h2>joiner拡張機能</h2>
-    <p>拡張機能を使う事で簡単にtoken joinが出来ます</p>
-    <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
-    <a href="https://greasyfork.org/ja/scripts/523829-manage-multi-discord-accounts/code" target="_blank">②複垢TOKENログイン拡張機能 [推奨]</a><br>
-    
-    <h2>外部サイト解説動画</h2>
-    <a href="https://youtu.be/CmH3izALTa8?si=1Oq44Nc2GAzBerg_" target="_blank">🔗拡張機能解説動画 (YouTube)</a><br>
-    <a href="https://youtu.be/NTrzk7bxotg?si=Nd482zjloHVn6V4R" target="_blank">🔗Token取得方法 (YouTube)</a><br>
-    <h2>参考動画</h2>
-    <blockquote class="imgur-embed-pub" lang="en" data-id="a/zPUYCs4" data-context="false" ><a href="//imgur.com/a/zPUYCs4"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-  
-</div>
+<br>
+　
+<br>
+         <h1>AARR Token Tool</h1>
 
-       </div>
+       <p>ボタンを押して表示</p>
        <div class="button-container">
 
-<button onclick="toggleVisibility('mainSettings')">主要設定</button>
+<button onclick="toggleVisibility('mainSettings')">TOKEN設定</button>
 </div>
 
 <div id="mainSettings" class="card">
-    <p>主要設定</p>
+    <p>TOKEN設定</p>
     <label for="tokenField">トークン:</label>
     <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力"></textarea>
-    <br>
+  
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('idSettings')">ID設定</button>
+</div>
+<div id="idSettings" class="card">
+    <h3>ID設定</h3>
     <label for="serverId">サーバーID:</label>
     <input type="text" id="serverId" placeholder="DiscordサーバーIDを入力">
     <button id="showWidget">IDからウィジェットを表示</button>
-</div>
-<div class="button-container">
-<button onclick="toggleVisibility('idSettings')">ID設定表示/非表示</button>
-</div>
-<div id="idSettings" class="card">
-    <p>ID設定</p>
+    <br>
     <label for="blacklistUID">非メンションブラックリストユーザーID:</label> 
     <textarea id="blacklistUID" placeholder="メンションしないユーザーのIDを改行で区切って入力"></textarea> 
     <br>
@@ -234,7 +214,7 @@ button:disabled {
 <button onclick="toggleVisibility('messageSettings')">メッセージ設定</button>
 </div>
 <div id="messageSettings" class="card">
-    <p>メッセージ設定</p>
+    <h3>メッセージ設定</h3>
     <label for="inputContent">発言内容:</label>
     <textarea id="inputContent" placeholder="発言する内容を入力(空の場合は点呼)"></textarea>
     <button id="copyContent">コピー</button>
@@ -278,7 +258,7 @@ button:disabled {
 <button onclick="toggleVisibility('reactionSettings')">リアクション設定</button>
 </div>
 <div id="reactionSettings" class="card">
-    <p>リアクション設定</p>
+    <h3>リアクション設定</h3>
     <label for="reactionEmojis">リアクション絵文字(,):</label>
     <textarea id="reactionEmojis" placeholder="リアクションする絵文字をカンマ(,)区切りで入力"></textarea>
     <label for="reactionDelay">リアクション遅延(ミリ秒):</label>
@@ -289,7 +269,7 @@ button:disabled {
 <button onclick="toggleVisibility('threadSettings')">スレッド設定</button>
 </div>
 <div id="threadSettings" class="card">
-    <p>スレッド設定</p>
+    <h3>スレッド設定</h3>
     <label for="threadTitle">スレッドタイトル:</label>
     <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
     <br>
@@ -314,9 +294,9 @@ button:disabled {
 <button onclick="toggleVisibility('eventSettings')">イベント設定</button>
 </div>
 <div id="eventSettings" class="card">
-    <p>イベント設定</p>
+    <h3>イベント設定</h3>
     <p>イベント作成</p>
-    <p>⚠️エクスプレッション権限に未対応</p>
+    <p>⚠️実験中機能 エクスプレッション権限に未対応</p>
     <div class="form-group">
         <label for="guildId">サーバーID：</label>
         <input type="text" id="guildId">
@@ -359,8 +339,8 @@ button:disabled {
     <p>絵文字設定</p>
     <div class="container">
         <form id="emojiForm">
-            <p>絵文字追加</p>
-            <p>⚠️エクスプレッション権限に未対応</p>
+            <h3>絵文字追加</h3>
+            <p>⚠️実験中機能 エクスプレッション権限に未対応</p>
             <label for="guildId">サーバーID (Guild ID):</label>
             <input type="text" id="guildId" name="guildId" required>
             <br><br>
@@ -383,10 +363,43 @@ button:disabled {
         <div id="status">ステータス: 準備完了</div>
     </div>
       </div>
+    <div class="container">
    <p>ログ</p>
         <div id="status"></div>
  <div id="logContainer"></div>
+       </div>
+    <br><br>
+   <div id="app">
+<div class="description">
 
+    <h2>AARR joiner拡張機能</h2>
+    <p>tokenのjoinは規制が強い為AARR製拡張機能をインストールして行ってください</p>
+    <p>拡張機能を使う事で簡単にtoken joinが出来ます</p>
+    <p>複数の垢を半手動で操作する新しい仕組みによりどんなサーバーでも確実にcaptcha対策/認証を行う事が出来ます</p>
+    <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
+    <a href="https://greasyfork.org/ja/scripts/523829-manage-multi-discord-accounts/code" target="_blank">②複垢TOKENログイン拡張機能 [推奨]</a><br>
+    <h5>token join参考動画</h5>
+    <blockquote class="imgur-embed-pub" lang="en" data-id="a/zPUYCs4" data-context="false" ><a href="//imgur.com/a/zPUYCs4"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+   
+    <h2>AARR user/channel ID取得拡張機能</h2>
+    <p>拡張機能を使う事でID取得が簡単に出来ます</p>
+    <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
+    <a href="https://greasyfork.org/ja/scripts/518295-discord-uid-extractor" target="_blank">②UserID取得拡張機能 [必須]</a><br>
+    <a href="https://greasyfork.org/ja/scripts/518683-discord-channel-id-extractor/code" target="_blank">③channel id取得拡張機能 [推奨]</a><br>
+
+    <h2>その他AARR拡張機能/ツール</h2>
+    <a href="aboutDM.html" target="_blank">📨AARRグループDM荒らしツール (GitHub)</a><br>
+    <a href="aboutwebhook.html" target="_blank">🌐AARRウェブフック荒らしツール (GitHub)</a><br>
+    <a href="about5.html" target="_blank">🚀拡張機能一覧</a><br>
+   
+    <h2>外部サイト解説動画</h2>
+    <a href="https://youtu.be/CmH3izALTa8?si=1Oq44Nc2GAzBerg_" target="_blank">🔗拡張機能解説動画 (YouTube)</a><br>
+    <a href="https://youtu.be/NTrzk7bxotg?si=Nd482zjloHVn6V4R" target="_blank">🔗Token取得方法 (YouTube)</a><br>
+
+   
+</div>
+
+       </div>
 
  
    <script>
