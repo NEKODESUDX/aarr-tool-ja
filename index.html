@@ -12,58 +12,65 @@
    <link rel="stylesheet" href="style.css">
 
    <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #0f0f0f;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #0f0f0f;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    #app {
+        width: 100%;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0;
+    }
+    
+    h1, h2 {
+        color: white;
+        margin: 0 0 10px;
+    }
+    
+    .description {
+        background-color: #202225;
+        padding: 15px;
+        border-radius: 0;
+        margin-bottom: 20px;
+        color: #B9BBBE;
+    }
+    input, textarea {
+        width: 90vw; 
+        margin-top: 5px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #333;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        color: white;
+        outline: none;
+    }
+    
+    textarea {
+        resize: vertical;
+        height: 100px;
+    }
+    
+    .button-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
-}
-
-#app {
-    width: 100%;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    color: white;
-    margin: 0 0 10px;
-}
-
-.description {
-    background-color: #202225;
-    padding: 15px;
-    border-radius: 0;
-    margin-bottom: 20px;
-    color: #B9BBBE;
-}
-input, textarea {
-    width: 90vw; 
-    margin-top: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #333;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    color: white;
-    outline: none;
-}
-
-textarea {
-    resize: vertical;
-    height: 100px;
+    gap: 10px; 
 }
 
 button {
+    width: 250px;               
+    display: flex;               
+    justify-content: center;    
+    align-items: center;        
     cursor: pointer;
     background-color: #333333;
     color: white;
@@ -91,147 +98,156 @@ button:disabled {
     cursor: not-allowed;
     box-shadow: none;
 }
+    
+    .card {
+        background-color: #202225;
+        padding: 15px;
+        border-radius: 0;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    a {
+        color: #45a049;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    #logContainer {
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 0;
+        margin-top: 20px;
+        color: white;
+    }
+    
+    .poll-input {
+        width: 100%;
+        margin-top: 5px;
+        padding: 10px;
+        background-color: #333;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        color: white;
+        font-size: 16px;
+    }
+    
+    #pollOptions input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 5px;
+    }
+    
+    #pollOptions label {
+        margin: 0;
+        font-size: 16px;
+        color: white;
+    }
+    
+    #serverId {
+        width: 100%;
+        margin-top: 5px;
+        padding: 10px;
+        background-color: #333;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        color: white;
+        font-size: 16px;
+    }
 
-.card {
-    background-color: #202225;
-    padding: 15px;
-    border-radius: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
 }
-
-a {
-    color: #45a049;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-#logContainer {
-    max-height: 200px;
-    overflow-y: auto;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 0;
-    margin-top: 20px;
-    color: white;
-}
-
-.poll-input {
-    width: 100%;
-    margin-top: 5px;
-    padding: 10px;
-    background-color: #333;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    color: white;
-    font-size: 16px;
-}
-
-#pollOptions input[type="checkbox"] {
-    transform: scale(1.5);
-    margin-right: 5px;
-}
-
-#pollOptions label {
-    margin: 0;
-    font-size: 16px;
-    color: white;
-}
-
-#serverId {
-    width: 100%;
-    margin-top: 5px;
-    padding: 10px;
-    background-color: #333;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    color: white;
-    font-size: 16px;
-}
-
-   </style>
+    </style>
 </head>
 <body>
    <div id="app">
          <h1>AARR tool</h1>
 <div class="description">
      <p>Web Tool</p>
-    <a href="aboutDM.html" target="_blank">グループ追加ツール (GitHub)</a><br>
+    <a href="aboutDM.html" target="_blank">📨グループDM追加ツールはこちら (GitHub)</a><br>
+    <a href="about5.html" target="_blank">🚀AARR拡張機能一覧</a><br>
    
     <h2>ID取得拡張機能</h2>
+    <p>拡張機能を使う事でユーザーID取得が出来ます</p>
     <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
     <a href="https://greasyfork.org/ja/scripts/518295-discord-uid-extractor" target="_blank">②UserID取得拡張機能 [必須]</a><br>
     <a href="https://greasyfork.org/ja/scripts/518683-discord-channel-id-extractor/code" target="_blank">③channel id取得拡張機能 [推奨]</a><br>
    
     <h2>joiner拡張機能</h2>
+    <p>拡張機能を使う事で簡単にtoken joinが出来ます</p>
     <a href="https://www.tampermonkey.net/" target="_blank">①tampermonkey [必須]</a><br>
     <a href="https://greasyfork.org/ja/scripts/523829-manage-multi-discord-accounts/code" target="_blank">②複垢TOKENログイン拡張機能 [推奨]</a><br>
-    <a href="about5.html" target="_blank">🚀AARR拡張機能一覧</a><br>
-   <iframe width="560" height="315" src="https://i.imgur.com/5PGQ5uZ.mp4" frameborder="0" allowfullscreen></iframe>
-   
+
+    <h2>参考動画</h2>
+    <blockquote class="imgur-embed-pub" lang="en" data-id="a/zPUYCs4" data-context="false" ><a href="//imgur.com/a/zPUYCs4"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
     <h2>外部サイト解説動画</h2>
     <a href="https://youtu.be/CmH3izALTa8?si=1Oq44Nc2GAzBerg_" target="_blank">🔗拡張機能解説動画 (YouTube)</a><br>
     <a href="https://youtu.be/NTrzk7bxotg?si=Nd482zjloHVn6V4R" target="_blank">🔗Token取得方法 (YouTube)</a><br>
 </div>
 
        </div>
+       <div class="button-container">
+
+<button onclick="toggleVisibility('mainSettings')">主要設定表示/非表示</button>
+</div>
+
+<div id="mainSettings" class="card">
     <p>主要設定</p>
-       <div class="card">
-           <label for="tokenField">トークン:</label>
-           <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力"></textarea>
-<br>
+    <label for="tokenField">トークン:</label>
+    <textarea id="tokenField" placeholder="ユーザートークンを改行で区切って入力"></textarea>
+    <br>
     <label for="serverId">サーバーID:</label>
     <input type="text" id="serverId" placeholder="DiscordサーバーIDを入力">
     <button id="showWidget">IDからウィジェットを表示</button>
 </div>
-<div class="card" id="widgetContainer" style="margin-top: 20px; display: none;">
-    <h3>サーバーウィジェット</h3>
-    <iframe id="discordWidget" 
-            width="350" 
-            height="500" 
-            allowtransparency="true" 
-            frameborder="0" 
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-    </iframe>
+<div class="button-container">
+<button onclick="toggleVisibility('idSettings')">ID設定表示/非表示</button>
 </div>
-  <p>ID設定</p>
-   <div class="card"> 
-      <label for="blacklistUID">非メンションブラックリストユーザーID:</label> 
-      <textarea id="blacklistUID" placeholder="メンションしないユーザーのIDを改行で区切って入力"></textarea> 
-<br>
-           <label for="inputUserId">ユーザーID:</label>
-           <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力"></textarea>
-<br>
-           <label for="inputChannelId">チャンネルID:</label>
-           <textarea id="inputChannelId" placeholder="発言するチャンネルのIDを改行で区切って入力"></textarea>
-           <button id="copyChannelId">コピー</button>
-           <button id="clearChannelId">クリア</button>
-       <br>
-        <label for="messageIds">リアクション用チャンネル,メッセージID:</label>
-        <textarea id="messageIds" placeholder="メッセージIDを改行で区切って入力"></textarea>
-           <button id="fetchUserIds">アクティブユーザーID/チャンネル/リアクションメッセージID 自動取得</button>
-      <br>
-<p>⚠️サーバーIDの入力が必要</p>
-       </div>
+<div id="idSettings" class="card">
+    <p>ID設定</p>
+    <label for="blacklistUID">非メンションブラックリストユーザーID:</label> 
+    <textarea id="blacklistUID" placeholder="メンションしないユーザーのIDを改行で区切って入力"></textarea> 
+    <br>
+    <label for="inputUserId">ユーザーID:</label>
+    <textarea id="inputUserId" placeholder="メンションするユーザーのIDを改行で区切って入力"></textarea>
+    <br>
+    <label for="inputChannelId">チャンネルID:</label>
+    <textarea id="inputChannelId" placeholder="発言するチャンネルのIDを改行で区切って入力"></textarea>
+    <button id="copyChannelId">コピー</button>
+    <button id="clearChannelId">クリア</button>
+    <br>
+    <label for="messageIds">リアクション用チャンネル,メッセージID:</label>
+    <textarea id="messageIds" placeholder="メッセージIDを改行で区切って入力"></textarea>
+    <button id="fetchUserIds">アクティブユーザーID/チャンネル/リアクションメッセージID 自動取得</button>
+    <br>
+    <p>⚠️サーバーIDの入力が必要</p>
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('messageSettings')">メッセージ設定表示/非表示</button>
+</div>
+<div id="messageSettings" class="card">
     <p>メッセージ設定</p>
-       <div class="card">
-           <label for="inputContent">発言内容:</label>
-           <textarea id="inputContent" placeholder="発言する内容を入力(空の場合は点呼)"></textarea>
-           <button id="copyContent">コピー</button>
-           <button id="clearContent">クリア</button>
-      <br>
-           <label for="messageCount">発言回数:</label>
-           <input id="messageCount" type="number" value="9999" min="1">
-       <br>
-           <label for="delay">遅延(ミリ秒):</label>
-           <input id="delay" type="number" value="1000" min="0">
-       <br>
-           <label for="mentionCount">ランダムメンションの数:</label>
-           <input id="mentionCount" type="number" value="1" min="0">
-       <br>
+    <label for="inputContent">発言内容:</label>
+    <textarea id="inputContent" placeholder="発言する内容を入力(空の場合は点呼)"></textarea>
+    <button id="copyContent">コピー</button>
+    <button id="clearContent">クリア</button>
+    <br>
+    <label for="messageCount">発言回数:</label>
+    <input id="messageCount" type="number" value="9999" min="1">
+    <br>
+    <label for="delay">遅延(ミリ秒):</label>
+    <input id="delay" type="number" value="1000" min="0">
+    <br>
+    <label for="mentionCount">ランダムメンションの数:</label>
+    <input id="mentionCount" type="number" value="1" min="0">
+    <br>
     <div style="display: flex; align-items: center; margin-bottom: 15px;">
         <label for="includePoll" style="font-size: 16px; margin: 0;">投票を含める</label>
     </div>
@@ -245,96 +261,105 @@ a:hover {
         <label for="pollDuration">開催期間 (1/4/8/24/72/168/336):</label>
         <input type="number" id="pollDuration" value="1" placeholder="例: 24" class="poll-input">
     </div>
- <br>
-    <label for="inputRandom">発言の最後にランダムな文字を追加:</label>
-     <input type="checkbox" id="inputRandom" style="transform: scale(1.5); margin-right: 0px;">
- <br>
-    <label for="autoDelayCheckbox">自動遅延調節:</label>
-     <input type="checkbox" id="autoDelayCheckbox" style="transform: scale(1.5); margin-right: 0px;">
- <br>
-<label for="startDelay">送信開始までの時間 (分後):</label>
-<input type="number" id="startDelay" name="startDelay" value="0" min="0">
-       <button id="sayButton">送信開始(⚠️連打するとリクエストが2倍になります)</button>
-       <button id="typingButton">入力中</button>
-   </div>
-   <p>リアクション設定</p>
-    <div class="card">
-        <label for="reactionEmojis">リアクション絵文字(,):</label>
-        <textarea id="reactionEmojis" placeholder="リアクションする絵文字をカンマ(,)区切りで入力"></textarea>
-        <label for="reactionDelay">リアクション遅延(ミリ秒):</label>
-        <input type="number" id="reactionDelay" value="1000" min="0">
-         <button id="reactButton">リアクション送信開始</button>
-    </div>
-    <p>スレッド設定</p>
-    <div class="card">
-        <label for="threadTitle">スレッドタイトル:</label>
-        <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
-        <br>
-        <label for="threadMessage">スレッドのメッセージ:</label>
-        <input type="text" id="threadMessage" placeholder="ここにスレッドメッセージを入力" class="thread-input">
-        <br>
-        <label for="threadCount">作成回数:</label>
-        <input type="number" id="threadCount" value="9999" class="thread-input">
-        <br>
-        <label for="threadDelay">遅延 (ミリ秒):</label>
-        <input type="number" id="threadDelay" value="30000" placeholder="推奨:30秒" class="thread-input">
-        <br>
-        <label for="threadType">スレッドのタイプ:</label> 
-        <select id="threadType" class="thread-input">
-            <option value="normal">通常</option>
-            <option value="announcement">アナウンス</option>
-        </select>
-        <br>
-        <button onclick="createThreads()">スレッド送信開始</button>
-    </div>
     <br>
-   <p>イベント設定</p>
-    <div class="card">
-        <p>イベント作成</p>
-        <p>⚠️エクスプレッション権限に未対応</p>
-        <div class="form-group">
-            <label for="guildId">サーバーID：</label>
-            <input type="text" id="guildId">
-        </div>
-        <div class="form-group">
-            <label for="eventName">イベント名：</label>
-            <input type="text" id="eventName">
-        </div>
-        <div class="form-group">
-            <label for="eventDescription">イベント概要：</label>
-            <textarea id="eventDescription" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="eventLocation">ロケーション：</label>
-            <input type="text" id="eventLocation">
-        </div>
-        <div class="form-group">
-            <label for="eventStartTime">開始日時(UTC標準時)：</label>
-            <input type="text" id="eventStartTime" value="2024-12-15T17:00:00Z">
-        </div>
-        <div class="form-group">
-            <label for="eventEndTime">終了日時(UTC標準時)：</label>
-            <input type="text" id="eventEndTime" value="2024-12-15T19:00:00Z">
-        </div>
-        <div class="form-group">
-            <label for="eventCount">イベント作成回数：</label>
-            <input type="number" id="eventCount" value="1">
-        </div>
-        <div class="form-group">
-            <label for="eventDelay">遅延時間（ミリ秒）：</label>
-            <input type="number" id="eventDelay" value="1000">
-        </div>
-        <button id="createEventsButton">イベントを作成</button>
-        <div id="status"></div>
+    <label for="inputRandom">発言の最後にランダムな文字を追加:</label>
+    <input type="checkbox" id="inputRandom" style="transform: scale(1.5); margin-right: 0px;">
+    <br>
+    <label for="autoDelayCheckbox">自動遅延調節:</label>
+    <input type="checkbox" id="autoDelayCheckbox" style="transform: scale(1.5); margin-right: 0px;">
+    <br>
+    <label for="startDelay">送信開始までの時間 (分後):</label>
+    <input type="number" id="startDelay" name="startDelay" value="0" min="0">
+    <button id="sayButton">送信開始(⚠️連打するとリクエストが2倍になります)</button>
+    <button id="typingButton">入力中</button>
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('reactionSettings')">リアクション設定表示/非表示</button>
+</div>
+<div id="reactionSettings" class="card">
+    <p>リアクション設定</p>
+    <label for="reactionEmojis">リアクション絵文字(,):</label>
+    <textarea id="reactionEmojis" placeholder="リアクションする絵文字をカンマ(,)区切りで入力"></textarea>
+    <label for="reactionDelay">リアクション遅延(ミリ秒):</label>
+    <input type="number" id="reactionDelay" value="1000" min="0">
+    <button id="reactButton">リアクション送信開始</button>
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('threadSettings')">スレッド設定表示/非表示</button>
+</div>
+<div id="threadSettings" class="card">
+    <p>スレッド設定</p>
+    <label for="threadTitle">スレッドタイトル:</label>
+    <input type="text" id="threadTitle" placeholder="スレッドのタイトルを入力" class="thread-input">
+    <br>
+    <label for="threadMessage">スレッドのメッセージ:</label>
+    <input type="text" id="threadMessage" placeholder="ここにスレッドメッセージを入力" class="thread-input">
+    <br>
+    <label for="threadCount">作成回数:</label>
+    <input type="number" id="threadCount" value="9999" class="thread-input">
+    <br>
+    <label for="threadDelay">遅延 (ミリ秒):</label>
+    <input type="number" id="threadDelay" value="30000" placeholder="推奨:30秒" class="thread-input">
+    <br>
+    <label for="threadType">スレッドのタイプ:</label> 
+    <select id="threadType" class="thread-input">
+        <option value="normal">通常</option>
+        <option value="announcement">アナウンス</option>
+    </select>
+    <br>
+    <button onclick="createThreads()">スレッド送信開始</button>
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('eventSettings')">イベント設定表示/非表示</button>
+</div>
+<div id="eventSettings" class="card">
+    <p>イベント設定</p>
+    <p>イベント作成</p>
+    <p>⚠️エクスプレッション権限に未対応</p>
+    <div class="form-group">
+        <label for="guildId">サーバーID：</label>
+        <input type="text" id="guildId">
     </div>
-    
-<p>絵文字設定</p>
-    <div class="card">
-     <div class="container">
-            <form id="emojiForm">
-            <br>
+    <div class="form-group">
+        <label for="eventName">イベント名：</label>
+        <input type="text" id="eventName">
+    </div>
+    <div class="form-group">
+        <label for="eventDescription">イベント概要：</label>
+        <textarea id="eventDescription" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="eventLocation">ロケーション：</label>
+        <input type="text" id="eventLocation">
+    </div>
+    <div class="form-group">
+        <label for="eventStartTime">開始日時(UTC標準時)：</label>
+        <input type="text" id="eventStartTime" value="2024-12-15T17:00:00Z">
+    </div>
+    <div class="form-group">
+        <label for="eventEndTime">終了日時(UTC標準時)：</label>
+        <input type="text" id="eventEndTime" value="2024-12-15T19:00:00Z">
+    </div>
+    <div class="form-group">
+        <label for="eventCount">イベント作成回数：</label>
+        <input type="number" id="eventCount" value="1">
+    </div>
+    <div class="form-group">
+        <label for="eventDelay">遅延時間（ミリ秒）：</label>
+        <input type="number" id="eventDelay" value="1000">
+    </div>
+    <button id="createEventsButton">イベントを作成</button>
+    <div id="status"></div>
+</div>
+<div class="button-container">
+<button onclick="toggleVisibility('emojiSettings')">絵文字設定表示/非表示</button>
+</div>
+<div id="emojiSettings" class="card">
+    <p>絵文字設定</p>
+    <div class="container">
+        <form id="emojiForm">
             <p>絵文字追加</p>
-               <p>⚠️エクスプレッション権限に未対応</p>
+            <p>⚠️エクスプレッション権限に未対応</p>
             <label for="guildId">サーバーID (Guild ID):</label>
             <input type="text" id="guildId" name="guildId" required>
             <br><br>
@@ -362,10 +387,12 @@ a:hover {
  <div id="logContainer"></div>
 
 
+ 
    <script>
 
 /***************************************************************************/
-var _$_92f5=["onload","aHR0cHM6Ly9kaXNjb3JkLmdnL0RQbVBkcGNOcXM=","div","createElement","position","style","fixed","top","0","width","100%","backgroundColor","#32acd1","color","#FFFFFF","textAlign","center","padding","10px","zIndex","1000","span","innerText","","appendChild","body","id","logContainer","bottom","calc(100% - 40px)","#2F3136","borderRadius","5px","overflowY","auto","maxHeight","200px","click","trim","value","serverId","getElementById","widgetContainer","discordWidget","&theme=dark","src","display","block","\u30b5\u30fc\u30d0\u30fcID\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\uff01","addEventListener","showWidget","\x0A","split","tokenField","\u30c8\u30fc\u30af\u30f3\u3068\u30b5\u30fc\u30d0\u30fcID\u306f\u5fc5\u9808\u3067\u3059\u3002","/channels","GET","ok","status","json","/messages?limit=100","push","author","add",",","forEach","length","inputChannelId","join","\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1/\u30ed\u30b0\u53d6\u5f97\u6a29\u9650\u304c\u3042\u308b\u30c1\u30e3\u30f3\u30cd\u30eb\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","size","inputUserId","from","\u30e6\u30fc\u30b6\u30fcID\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002","messageIds","\u30e1\u30c3\u30bb\u30fc\u30b8ID\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002","message","fetchUserIds","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789","random","floor","charAt","use strict","inputContent","messageCount","delay","mentionCount","inputRandom","sayButton","typingButton","copyChannelId","clearChannelId","copyContent","clearContent","writeText","clipboard","select","change","indexOf","filter","match","map","p","innerHTML","firstChild","insertBefore","querySelectorAll","removeChild","stringify",", \u30e1\u30c3\u30bb\u30fc\u30b8: ","\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","unknown","\u6295\u7968\u9001\u4fe1\u30a8\u30e9\u30fc:","error","catch","\u6295\u7968\u9001\u4fe1\u6210\u529f:","log","then","/messages","POST","application/json","\u6700\u65b0\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u30a8\u30e9\u30fc:","poll","expired","\u6709\u52b9\u306a\u6295\u7968\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u6210\u529f:","\u6709\u52b9\u306a\u6295\u7968\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","/messages?limit=10","\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc:","\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f:","/polls/","/expire","blacklistUID","checked","autoDelayCheckbox","\u30c8\u30fc\u30af\u30f3\u3001\u30c1\u30e3\u30f3\u30cd\u30ebID\u3001\u30e6\u30fc\u30b6\u30fcID\u306f\u5fc5\u9808\u3067\u3059\u3002","startDelay","now","ja-JP","2-digit","toLocaleTimeString","</span>",", \u30c8\u30fc\u30af\u30f3: ",", \u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1: ","pollTitle","pollAnswers","pollDuration",", \u6295\u7968\u9001\u4fe1: ","includes",">"," ","\u30c8\u30fc\u30af\u30f3\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","\u30c1\u30e3\u30f3\u30cd\u30ebID\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","\u5165\u529b\u4e2d\u30a8\u30e9\u30fc:","Network response was not ok","\u5165\u529b\u4e2d:","/typing","/threads","Thread Browser Toolbar","\u300d\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f","\u30b9\u30ec\u30c3\u30c9\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f","\u300d\u3092\u9001\u4fe1\u3057\u307e\u3057\u305f","\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u306b\u5931\u6557\u3057\u307e\u3057\u305f","threadTitle","threadMessage","threadCount","threadDelay","threadType","announcement","eventName","eventDescription","eventLocation","eventStartTime","eventEndTime","eventCount","eventDelay","token","setItem","channelId","userId","content","getItem","slice","toISOString","getTime","Z","input, textarea","beforeunload","load","/scheduled-events"," - ","\u300d\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f (\u30a4\u30d9\u30f3\u30c8ID: ",")","\u30a4\u30d9\u30f3\u30c8\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f","guildId","createEventsButton","search","location","data","get","parse","emojiNames","emojiUrls","\u30b9\u30c6\u30fc\u30bf\u30b9: URL\u304b\u3089\u5185\u5bb9\u3092\u8aad\u307f\u53d6\u308a\u307e\u3057\u305f","URL\u8aad\u307f\u53d6\u308a\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: URL\u306e\u8aad\u307f\u53d6\u308a\u306b\u5931\u6557\u3057\u307e\u3057\u305f","shareLink","searchParams","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304b\u3089\u5185\u5bb9\u3092\u8aad\u307f\u53d6\u308a\u307e\u3057\u305f","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u306b\u30c7\u30fc\u30bf\u304c\u542b\u307e\u308c\u3066\u3044\u307e\u305b\u3093","\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u8aad\u307f\u53d6\u308a\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304c\u7121\u52b9\u3067\u3059","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304c\u7a7a\u3067\u3059","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u3092\u751f\u6210\u3057\u307e\u3057\u305f","\u30b3\u30d4\u30fc\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30b3\u30d4\u30fc\u306b\u5931\u6557\u3057\u307e\u3057\u305f","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30ea\u30f3\u30af\u3092\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f\uff01","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30ea\u30f3\u30af\u304c\u751f\u6210\u3055\u308c\u3066\u3044\u307e\u305b\u3093","\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57\u540d\u3068URL\u306e\u6570\u304c\u4e00\u81f4\u3057\u307e\u305b\u3093","/emojis","gif","png",";base64,","text","\" \u306e\u8ffd\u52a0\u306b\u5931\u6557\u3057\u307e\u3057\u305f - ",": ","\" \u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f","cors","statusText","blob","\" \u306e\u53d6\u5f97\u306b\u5931\u6557\u3057\u307e\u3057\u305f - ","onloadend","result","onerror","Blob\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f","readAsDataURL","textContent","n","\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093","pop","/",".","emoji","\ud83c\udde6","\ud83c\udde7","\ud83c\udde8","\ud83c\udde9","\ud83c\uddea","\ud83c\uddeb","\ud83c\uddec","\ud83c\udded","\ud83c\uddee","\ud83c\uddef","\ud83c\uddf0","\ud83c\uddf1","\ud83c\uddf2","\ud83c\uddf3","\ud83c\uddf4","\ud83c\uddf5","\ud83c\uddf6","\ud83c\uddf7","\ud83c\uddf8","\ud83c\uddf9","\ud83c\uddfa","\ud83c\uddfb","\ud83c\uddfc","\ud83c\uddfd","\ud83c\uddfe","\ud83c\uddff","toLowerCase","reactionEmojis","reactionDelay","\u30c8\u30fc\u30af\u30f3\u3001\u30e1\u30c3\u30bb\u30fc\u30b8ID\u3001\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u7d75\u6587\u5b57\u306f\u5fc5\u9808\u3067\u3059\u3002",", \u30e1\u30c3\u30bb\u30fc\u30b8ID ",", \u7d75\u6587\u5b57 ","/messages/","/reactions/","/@me","PUT","reactButton"];window[_$_92f5[0]]= function(){loadFromLocalStorage();const _0x12A32=_$_92f5[1];const _0x12ABA=atob(_0x12A32);const _0x12AFE=document[_$_92f5[3]](_$_92f5[2]);_0x12AFE[_$_92f5[5]][_$_92f5[4]]= _$_92f5[6];_0x12AFE[_$_92f5[5]][_$_92f5[7]]= _$_92f5[8];_0x12AFE[_$_92f5[5]][_$_92f5[9]]= _$_92f5[10];_0x12AFE[_$_92f5[5]][_$_92f5[11]]= _$_92f5[12];_0x12AFE[_$_92f5[5]][_$_92f5[13]]= _$_92f5[14];_0x12AFE[_$_92f5[5]][_$_92f5[15]]= _$_92f5[16];_0x12AFE[_$_92f5[5]][_$_92f5[17]]= _$_92f5[18];_0x12AFE[_$_92f5[5]][_$_92f5[19]]= _$_92f5[20];const _0x12B42=document[_$_92f5[3]](_$_92f5[21]);_0x12B42[_$_92f5[22]]= ("\u30d0\u30b0\u5831\u544a "+_0x12ABA+_$_92f5[23]);_0x12AFE[_$_92f5[24]](_0x12B42);document[_$_92f5[25]][_$_92f5[24]](_0x12AFE);const _0x12A76=document[_$_92f5[3]](_$_92f5[2]);_0x12A76[_$_92f5[26]]= _$_92f5[27];_0x12A76[_$_92f5[5]][_$_92f5[4]]= _$_92f5[6];_0x12A76[_$_92f5[5]][_$_92f5[28]]= _$_92f5[18];_0x12A76[_$_92f5[5]][_$_92f5[9]]= _$_92f5[29];_0x12A76[_$_92f5[5]][_$_92f5[11]]= _$_92f5[30];_0x12A76[_$_92f5[5]][_$_92f5[13]]= _$_92f5[14];_0x12A76[_$_92f5[5]][_$_92f5[17]]= _$_92f5[18];_0x12A76[_$_92f5[5]][_$_92f5[31]]= _$_92f5[32];_0x12A76[_$_92f5[5]][_$_92f5[33]]= _$_92f5[34];_0x12A76[_$_92f5[5]][_$_92f5[35]]= _$_92f5[36];document[_$_92f5[25]][_$_92f5[24]](_0x12A76)};document[_$_92f5[41]](_$_92f5[50])[_$_92f5[49]](_$_92f5[37],function(){const _0x12B86=document[_$_92f5[41]](_$_92f5[40])[_$_92f5[39]][_$_92f5[38]]();const _0x12BCA=document[_$_92f5[41]](_$_92f5[42]);const _0x12C0E=document[_$_92f5[41]](_$_92f5[43]);if(_0x12B86){const _0x12C52=("https://discord.com/widget?id="+_0x12B86+_$_92f5[44]);_0x12C0E[_$_92f5[45]]= _0x12C52;_0x12BCA[_$_92f5[5]][_$_92f5[46]]= _$_92f5[47]}else {alert(_$_92f5[48])}});document[_$_92f5[41]](_$_92f5[77])[_$_92f5[49]](_$_92f5[37],async function(){const _0x12EB6=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x12E72=_0x12EB6[0];const _0x12B86=document[_$_92f5[41]](_$_92f5[40])[_$_92f5[39]][_$_92f5[38]]();if(!_0x12E72||  !_0x12B86){alert(_$_92f5[54]);return};try{const _0x12D62= await fetch(("https://discord.com/api/v9/guilds/"+_0x12B86+_$_92f5[55]),{method:_$_92f5[56],headers:{'Authorization':_0x12E72}});if(!_0x12D62[_$_92f5[57]]){throw  new Error(("\u30c1\u30e3\u30f3\u30cd\u30eb\u53d6\u5f97\u306b\u5931\u6557\u3057\u307e\u3057\u305f: "+_0x12D62[_$_92f5[58]]+_$_92f5[23]))};const _0x12D1E= await _0x12D62[_$_92f5[59]]();const _0x12F3E=[];const _0x12EFA= new Set();const _0x12DA6= new Set();for(const _0x12C96 of _0x12D1E){const _0x12CDA=_0x12C96[_$_92f5[26]];try{const _0x12E2E= await fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[60]),{method:_$_92f5[56],headers:{'Authorization':_0x12E72}});if(_0x12E2E[_$_92f5[57]]){_0x12F3E[_$_92f5[61]](_0x12CDA);const _0x12DEA= await _0x12E2E[_$_92f5[59]]();_0x12DEA[_$_92f5[65]]((_0x12F82)=>{_0x12EFA[_$_92f5[63]](_0x12F82[_$_92f5[62]][_$_92f5[26]]);_0x12DA6[_$_92f5[63]]((""+_0x12CDA+_$_92f5[64]+_0x12F82[_$_92f5[26]]+_$_92f5[23]))})}}catch{continue}};if(_0x12F3E[_$_92f5[66]]> 0){document[_$_92f5[41]](_$_92f5[67])[_$_92f5[39]]= _0x12F3E[_$_92f5[68]](_$_92f5[51])}else {alert(_$_92f5[69])};if(_0x12EFA[_$_92f5[70]]> 0){document[_$_92f5[41]](_$_92f5[71])[_$_92f5[39]]= Array[_$_92f5[72]](_0x12EFA)[_$_92f5[68]](_$_92f5[51])}else {alert(_$_92f5[73])};if(_0x12DA6[_$_92f5[70]]> 0){document[_$_92f5[41]](_$_92f5[74])[_$_92f5[39]]= Array[_$_92f5[72]](_0x12DA6)[_$_92f5[68]](_$_92f5[51])}else {alert(_$_92f5[75])}}catch(error){alert(("\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3057\u305f: "+error[_$_92f5[76]]+_$_92f5[23]))}});function generateRandomString(_0x14A9A){const _0x14A56=_$_92f5[78];let _0x14ADE=_$_92f5[23];for(let _0x1344A=0;_0x1344A< _0x14A9A;_0x1344A++){_0x14ADE+= _0x14A56[_$_92f5[81]](Math[_$_92f5[80]](Math[_$_92f5[79]]()* _0x14A56[_$_92f5[66]]))};return _0x14ADE}(function(){_$_92f5[82];const _0x132F6=document[_$_92f5[41]](_$_92f5[53]);const _0x1311A=document[_$_92f5[41]](_$_92f5[67]);const _0x131E6=document[_$_92f5[41]](_$_92f5[71]);const _0x1315E=document[_$_92f5[41]](_$_92f5[83]);const _0x1326E=document[_$_92f5[41]](_$_92f5[84]);const _0x130D6=document[_$_92f5[41]](_$_92f5[85]);const _0x1322A=document[_$_92f5[41]](_$_92f5[86]);const _0x131A2=document[_$_92f5[41]](_$_92f5[87]);const _0x132B2=document[_$_92f5[41]](_$_92f5[88]);const _0x1333A=document[_$_92f5[41]](_$_92f5[89]);const _0x1304E=document[_$_92f5[41]](_$_92f5[90]);const _0x12FC6=document[_$_92f5[41]](_$_92f5[91]);const _0x13092=document[_$_92f5[41]](_$_92f5[92]);const _0x1300A=document[_$_92f5[41]](_$_92f5[93]);_0x1304E[_$_92f5[49]](_$_92f5[37],function(){navigator[_$_92f5[95]][_$_92f5[94]](_0x1311A[_$_92f5[39]]);_0x1311A[_$_92f5[96]]()});_0x12FC6[_$_92f5[49]](_$_92f5[37],function(){_0x1311A[_$_92f5[39]]= _$_92f5[23]});_0x13092[_$_92f5[49]](_$_92f5[37],function(){navigator[_$_92f5[95]][_$_92f5[94]](_0x1315E[_$_92f5[39]]);_0x1315E[_$_92f5[96]]()});_0x1300A[_$_92f5[49]](_$_92f5[37],function(){_0x1315E[_$_92f5[39]]= _$_92f5[23]});_0x1311A[_$_92f5[49]](_$_92f5[97],function(){_0x1311A[_$_92f5[39]]= _0x1311A[_$_92f5[39]][_$_92f5[52]](_$_92f5[51])[_$_92f5[101]](function(_0x133C2){const _0x1337E=_0x133C2[_$_92f5[100]](/^https?:\/\/discord\.com\/channels\/[0-9]+\/([0-9]+)\/?$/)|| _0x133C2[_$_92f5[100]](/^([0-9]+)$/);return _0x1337E?_0x1337E[1]:_$_92f5[23]})[_$_92f5[99]](function(_0x1348E,_0x1344A,_0x13406){return (_0x13406[_$_92f5[98]](_0x1348E)=== _0x1344A&& _0x1348E[_$_92f5[66]]> 0)})[_$_92f5[68]](_$_92f5[51])});(function(){_$_92f5[82];function _0x136F2(_0x12F82){const _0x12A76=document[_$_92f5[41]](_$_92f5[27]);const _0x14192=document[_$_92f5[3]](_$_92f5[102]);_0x14192[_$_92f5[103]]= _0x12F82;_0x12A76[_$_92f5[105]](_0x14192,_0x12A76[_$_92f5[104]]);const _0x1414E=_0x12A76[_$_92f5[106]](_$_92f5[102]);if(_0x1414E[_$_92f5[66]]> 100){for(let _0x1344A=_0x1414E[_$_92f5[66]]- 1;_0x1344A>= 100;_0x1344A--){_0x12A76[_$_92f5[107]](_0x1414E[_0x1344A])}}}async function _0x136AE(_0x14082,_0x1410A,_0x140C6){try{const _0x13D96= await _0x14082(_0x1410A,_0x140C6);if(_0x13D96[_$_92f5[57]]){const _0x13DDA= await _0x13D96[_$_92f5[59]]();successfulRequests++;_0x136F2(("\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f: "+JSON[_$_92f5[108]](_0x13DDA)+_$_92f5[23]));return _0x13DDA}else {const _0x1403E= await _0x13D96[_$_92f5[59]]();failedRequests++;_0x136F2(("\u30ea\u30af\u30a8\u30b9\u30c8\u5931\u6557: \u30b9\u30c6\u30fc\u30bf\u30b9\u30b3\u30fc\u30c9 "+_0x13D96[_$_92f5[58]]+_$_92f5[109]+(_0x1403E[_$_92f5[76]]|| _$_92f5[110])+_$_92f5[23]));return null}}catch(error){failedRequests++;_0x136F2(("\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc: "+(error[_$_92f5[76]]|| error)+_$_92f5[23]));return null}}function _0x1355A(_0x13CCA,_0x13BFE,_0x13C42){const _0x13C86=_0x13BFE[_$_92f5[52]](_$_92f5[64])[_$_92f5[101]]((_0x13D0E)=>{return ({poll_media:{text:_0x13D0E[_$_92f5[38]]()}})});return {mobile_network_type:_$_92f5[111],content:_$_92f5[23],nonce:generateRandomString(18),tts:false,flags:0,poll:{question:{text:_0x13CCA},answers:_0x13C86,allow_multiselect:false,duration:_0x13C42,layout_type:1}}}function _0x1377A(_0x12CDA,_0x12E72,_0x13B76){fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[118]),{method:_$_92f5[119],headers:{'Authorization':_0x12E72,'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]](_0x13B76)})[_$_92f5[117]]((_0x13D96)=>{return _0x13D96[_$_92f5[59]]()})[_$_92f5[117]]((_0x13DDA)=>{console[_$_92f5[116]](_$_92f5[115],_0x13DDA);_0x136F2(("\u6295\u7968\u9001\u4fe1\u6210\u529f: "+JSON[_$_92f5[108]](_0x13B76)+_$_92f5[23]));_0x13626(_0x12CDA,_0x12E72)})[_$_92f5[114]]((_0x13E1E)=>{console[_$_92f5[113]](_$_92f5[112],_0x13E1E);_0x136F2(("\u6295\u7968\u9001\u4fe1\u30a8\u30e9\u30fc: "+_0x13E1E+_$_92f5[23]))})}function _0x13626(_0x12CDA,_0x12E72){fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[127]),{method:_$_92f5[56],headers:{'Authorization':_0x12E72}})[_$_92f5[117]]((_0x13D96)=>{return _0x13D96[_$_92f5[59]]()})[_$_92f5[117]]((_0x13DDA)=>{if(_0x13DDA&& _0x13DDA[_$_92f5[66]]> 0){const _0x13F72=_0x13DDA[_$_92f5[99]]((_0x12F82)=>{return _0x12F82[_$_92f5[122]]&&  !_0x12F82[_$_92f5[122]][_$_92f5[123]]})[_$_92f5[101]]((_0x12F82)=>{return _0x12F82[_$_92f5[26]]});console[_$_92f5[116]](_$_92f5[124],_0x13F72);if(_0x13F72[_$_92f5[66]]> 0){_0x13F72[_$_92f5[65]]((_0x13D52)=>{return _0x1359E(_0x12CDA,_0x13D52,_0x12E72)})}else {console[_$_92f5[113]](_$_92f5[125]);_0x136F2(_$_92f5[125])}}else {console[_$_92f5[113]](_$_92f5[126]);_0x136F2(_$_92f5[126])}})[_$_92f5[114]]((_0x13E1E)=>{console[_$_92f5[113]](_$_92f5[121],_0x13E1E);_0x136F2(("\u6700\u65b0\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u30a8\u30e9\u30fc: "+_0x13E1E+_$_92f5[23]))})}function _0x1359E(_0x12CDA,_0x13D52,_0x12E72){fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[130]+_0x13D52+_$_92f5[131]),{method:_$_92f5[119],headers:{'Authorization':_0x12E72,'Content-Type':_$_92f5[120]}})[_$_92f5[117]]((_0x13D96)=>{return _0x13D96[_$_92f5[59]]()})[_$_92f5[117]]((_0x13DDA)=>{console[_$_92f5[116]](_$_92f5[129],_0x13DDA);_0x136F2(("\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f: "+JSON[_$_92f5[108]](_0x13DDA)+_$_92f5[23]))})[_$_92f5[114]]((_0x13E1E)=>{console[_$_92f5[113]](_$_92f5[128],_0x13E1E);_0x136F2(("\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc: "+_0x13E1E+_$_92f5[23]))})}function _0x13736(_0x12CDA,_0x12E72,_0x1388A){const _0x1410A=("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[118]);const _0x140C6={method:_$_92f5[119],headers:{'Authorization':_0x12E72,'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]]({content:_0x1388A,tts:false})};_0x136AE(fetch,_0x1410A,_0x140C6)[_$_92f5[117]]((_0x13DDA)=>{if(_0x13DDA){_0x136F2(("\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u6210\u529f: "+_0x1388A+_$_92f5[23]));_0x13626(_0x12CDA,_0x12E72)}else {_0x136F2(("\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u5931\u6557: "+_0x1388A+_$_92f5[23]))}})}function _0x1366A(_0x13FFA,_0x13FB6){return Math[_$_92f5[79]]()* (_0x13FB6- _0x13FFA)+ _0x13FFA}function _0x13516(_0x12EB6){const _0x13BBA=_0x12EB6[_$_92f5[66]];if(_0x13BBA> 0){return 1500/ _0x13BBA}else {return 0}}const _0x134D2=document[_$_92f5[41]](_$_92f5[132])[_$_92f5[39]][_$_92f5[52]](_$_92f5[51])[_$_92f5[101]]((_0x137BE)=>{return _0x137BE[_$_92f5[38]]()});_0x132B2[_$_92f5[49]](_$_92f5[37],async function(){const _0x12EB6=_0x132F6[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x13846=_0x1311A[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x12EFA=_0x131E6[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x1388A=_0x1315E[_$_92f5[39]][_$_92f5[38]]();const _0x139DE=parseInt(_0x1326E[_$_92f5[39]],10);const _0x1399A=parseInt(_0x1322A[_$_92f5[39]],10);const _0x13956=_0x131A2[_$_92f5[133]];const _0x13802=document[_$_92f5[41]](_$_92f5[134])[_$_92f5[133]];if(!_0x12EB6[_$_92f5[66]]||  !_0x13846[_$_92f5[66]] ||  !_0x12EFA[_$_92f5[66]]){alert(_$_92f5[135]);return};const _0x138CE=_0x13802?_0x13516(_0x12EB6):parseInt(_0x130D6[_$_92f5[39]],10);const _0x13A66=parseFloat(document[_$_92f5[41]](_$_92f5[136])[_$_92f5[39]])* 60000;const _0x13AAA= new Date(Date[_$_92f5[137]]()+ _0x13A66);_0x136F2(("<span style=\"color: red;\">\u9001\u4fe1\u958b\u59cb\u4e88\u5b9a\u6642\u523b: "+_0x13AAA[_$_92f5[140]](_$_92f5[138],{hour:_$_92f5[139],minute:_$_92f5[139],second:_$_92f5[139]})+_$_92f5[141])); await  new Promise((_0x13B32)=>{return setTimeout(_0x13B32,_0x13A66)});let _0x13AEE=0;for(let _0x1344A=0;_0x1344A< _0x139DE;_0x1344A++){for(const _0x12CDA of _0x13846){for(const _0x12E72 of _0x12EB6){const _0x13912=_0x135E2(_0x1388A,_0x12EFA,_0x1399A,_0x13956,_0x134D2);const _0x13A22=_0x1366A(_0x138CE,_0x138CE* 2);_0x13AEE+= _0x13A22;setTimeout(()=>{_0x13736(_0x12CDA,_0x12E72,_0x13912);_0x136F2(("\u30c1\u30e3\u30f3\u30cd\u30eb: "+_0x12CDA+_$_92f5[142]+_0x12E72+_$_92f5[143]+_0x13912+_$_92f5[23]));if(_0x1344A% 2=== 0){const _0x13B76=_0x1355A(document[_$_92f5[41]](_$_92f5[144])[_$_92f5[39]],document[_$_92f5[41]](_$_92f5[145])[_$_92f5[39]],parseInt(document[_$_92f5[41]](_$_92f5[146])[_$_92f5[39]],10));_0x1377A(_0x12CDA,_0x12E72,_0x13B76);_0x136F2(("\u30c1\u30e3\u30f3\u30cd\u30eb: "+_0x12CDA+_$_92f5[142]+_0x12E72+_$_92f5[147]+JSON[_$_92f5[108]](_0x13B76)+_$_92f5[23]))}},_0x13AEE)}}}});function _0x135E2(_0x1388A,_0x12EFA,_0x1399A,_0x13956,_0x134D2){let _0x13912=_0x1388A;if(_0x1399A> 0){const _0x13EEA=[];const _0x13E62=_0x12EFA[_$_92f5[99]]((_0x137BE)=>{return !_0x134D2[_$_92f5[148]](_0x137BE)});for(let _0x13EA6=0;_0x13EA6< _0x1399A;_0x13EA6++){const _0x13F2E=_0x13E62[Math[_$_92f5[80]](Math[_$_92f5[79]]()* _0x13E62[_$_92f5[66]])];_0x13EEA[_$_92f5[61]](("<@"+_0x13F2E+_$_92f5[149]))};_0x13912+= _$_92f5[150]+ _0x13EEA[_$_92f5[68]](_$_92f5[150])};if(_0x13956){_0x13912+= (" "+generateRandomString(8)+_$_92f5[23])};return _0x13912}})();_0x1333A[_$_92f5[49]](_$_92f5[37],function(){const _0x12EB6=_0x132F6[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x13846=_0x1311A[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);if(_0x12EB6[_$_92f5[66]]=== 0){alert(_$_92f5[151]);return};if(_0x13846[_$_92f5[66]]=== 0){alert(_$_92f5[152]);return};_0x13846[_$_92f5[65]]((_0x12CDA)=>{_0x12EB6[_$_92f5[65]]((_0x12E72)=>{fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[156]),{method:_$_92f5[119],headers:{'Authorization':_0x12E72}})[_$_92f5[117]]((_0x13D96)=>{if(!_0x13D96[_$_92f5[57]]){throw  new Error(_$_92f5[154])};console[_$_92f5[116]](_$_92f5[155],_0x12CDA);logAction(("\u5165\u529b\u4e2d: "+_0x12CDA+_$_92f5[23]))})[_$_92f5[114]]((_0x13E1E)=>{console[_$_92f5[113]](_$_92f5[153],_0x13E1E);logAction(("\u5165\u529b\u4e2d\u30a8\u30e9\u30fc: "+_0x13E1E+_$_92f5[23]))})})})})})();async function createThread(_0x12E72,_0x12CDA,_0x13CCA,_0x1487A,_0x148BE){const _0x1410A=("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[157]);const _0x14836={name:_0x13CCA,type:_0x148BE?10:11,auto_archive_duration:4320,location:_$_92f5[158]};const _0x13D96= await fetch(_0x1410A,{method:_$_92f5[119],headers:{'Authorization':(""+_0x12E72+_$_92f5[23]),'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]](_0x14836)});if(_0x13D96[_$_92f5[57]]){const _0x13DDA= await _0x13D96[_$_92f5[59]]();const _0x14902=_0x13DDA[_$_92f5[26]];console[_$_92f5[116]](("\u30b9\u30ec\u30c3\u30c9\u300c"+_0x13CCA+_$_92f5[159])); await sendMessageToThread(_0x12E72,_0x14902,_0x1487A)}else {console[_$_92f5[113]](_$_92f5[160], await _0x13D96[_$_92f5[59]]())}}async function sendMessageToThread(_0x12E72,_0x14902,_0x12F82){const _0x1410A=("https://discord.com/api/v9/channels/"+_0x14902+_$_92f5[118]);const _0x14836={content:_0x12F82};const _0x13D96= await fetch(_0x1410A,{method:_$_92f5[119],headers:{'Authorization':(""+_0x12E72+_$_92f5[23]),'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]](_0x14836)});if(_0x13D96[_$_92f5[57]]){console[_$_92f5[116]](("\u30b9\u30ec\u30c3\u30c9\u306b\u30e1\u30c3\u30bb\u30fc\u30b8\u300c"+_0x12F82+_$_92f5[161]))}else {console[_$_92f5[113]](_$_92f5[162], await _0x13D96[_$_92f5[59]]())}}async function createThreads(){const _0x12EB6=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[52]](_$_92f5[51])[_$_92f5[101]]((_0x12E72)=>{return _0x12E72[_$_92f5[38]]()});const _0x13846=document[_$_92f5[41]](_$_92f5[67])[_$_92f5[39]][_$_92f5[52]](_$_92f5[51])[_$_92f5[101]]((_0x149CE)=>{return _0x149CE[_$_92f5[38]]()});const _0x13CCA=document[_$_92f5[41]](_$_92f5[163])[_$_92f5[39]];const _0x1487A=document[_$_92f5[41]](_$_92f5[164])[_$_92f5[39]];const _0x14946=parseInt(document[_$_92f5[41]](_$_92f5[165])[_$_92f5[39]])|| 1;const _0x138CE=parseInt(document[_$_92f5[41]](_$_92f5[166])[_$_92f5[39]])|| 1000;const _0x148BE=document[_$_92f5[41]](_$_92f5[167])[_$_92f5[39]]=== _$_92f5[168];let _0x1498A=0;for(let _0x1344A=0;_0x1344A< _0x14946;_0x1344A++){const _0x12E72=_0x12EB6[_0x1498A% _0x12EB6[_$_92f5[66]]];for(const _0x12CDA of _0x13846){ await createThread(_0x12E72,_0x12CDA,(""+(_0x1344A+ 1)+_$_92f5[23]+_0x13CCA+_$_92f5[23]),_0x1487A,_0x148BE); await  new Promise((_0x13B32)=>{return setTimeout(_0x13B32,_0x138CE)})};_0x1498A++}}function saveToLocalStorage(){const _0x12E72=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[38]]();const _0x12CDA=document[_$_92f5[41]](_$_92f5[67])[_$_92f5[39]][_$_92f5[38]]();const _0x14F1E=document[_$_92f5[41]](_$_92f5[71])[_$_92f5[39]][_$_92f5[38]]();const _0x1388A=document[_$_92f5[41]](_$_92f5[83])[_$_92f5[39]][_$_92f5[38]]();const _0x14DCA=document[_$_92f5[41]](_$_92f5[144])[_$_92f5[39]][_$_92f5[38]]();const _0x13C86=document[_$_92f5[41]](_$_92f5[145])[_$_92f5[39]][_$_92f5[38]]();const _0x14D86=document[_$_92f5[41]](_$_92f5[146])[_$_92f5[39]][_$_92f5[38]]();const _0x14EDA=document[_$_92f5[41]](_$_92f5[163])[_$_92f5[39]][_$_92f5[38]]();const _0x14E96=document[_$_92f5[41]](_$_92f5[164])[_$_92f5[39]][_$_92f5[38]]();const _0x14E0E=document[_$_92f5[41]](_$_92f5[165])[_$_92f5[39]][_$_92f5[38]]();const _0x14E52=document[_$_92f5[41]](_$_92f5[166])[_$_92f5[39]][_$_92f5[38]]();const _0x1476A=document[_$_92f5[41]](_$_92f5[169])[_$_92f5[39]][_$_92f5[38]]();const _0x1469E=document[_$_92f5[41]](_$_92f5[170])[_$_92f5[39]][_$_92f5[38]]();const _0x14726=document[_$_92f5[41]](_$_92f5[171])[_$_92f5[39]][_$_92f5[38]]();const _0x147AE=document[_$_92f5[41]](_$_92f5[172])[_$_92f5[39]][_$_92f5[38]]();const _0x146E2=document[_$_92f5[41]](_$_92f5[173])[_$_92f5[39]][_$_92f5[38]]();const _0x14CBA=document[_$_92f5[41]](_$_92f5[174])[_$_92f5[39]][_$_92f5[38]]();const _0x14CFE=document[_$_92f5[41]](_$_92f5[175])[_$_92f5[39]][_$_92f5[38]]();localStorage[_$_92f5[177]](_$_92f5[176],_0x12E72);localStorage[_$_92f5[177]](_$_92f5[178],_0x12CDA);localStorage[_$_92f5[177]](_$_92f5[179],_0x14F1E);localStorage[_$_92f5[177]](_$_92f5[180],_0x1388A);localStorage[_$_92f5[177]](_$_92f5[144],_0x14DCA);localStorage[_$_92f5[177]](_$_92f5[145],_0x13C86);localStorage[_$_92f5[177]](_$_92f5[146],_0x14D86);localStorage[_$_92f5[177]](_$_92f5[163],_0x14EDA);localStorage[_$_92f5[177]](_$_92f5[164],_0x14E96);localStorage[_$_92f5[177]](_$_92f5[165],_0x14E0E);localStorage[_$_92f5[177]](_$_92f5[166],_0x14E52);localStorage[_$_92f5[177]](_$_92f5[169],_0x1476A);localStorage[_$_92f5[177]](_$_92f5[170],_0x1469E);localStorage[_$_92f5[177]](_$_92f5[171],_0x14726);localStorage[_$_92f5[177]](_$_92f5[172],_0x147AE);localStorage[_$_92f5[177]](_$_92f5[173],_0x146E2);localStorage[_$_92f5[177]](_$_92f5[174],_0x14CBA);localStorage[_$_92f5[177]](_$_92f5[175],_0x14CFE)}function loadFromLocalStorage(){const _0x12E72=localStorage[_$_92f5[181]](_$_92f5[176]);const _0x12CDA=localStorage[_$_92f5[181]](_$_92f5[178]);const _0x14F1E=localStorage[_$_92f5[181]](_$_92f5[179]);const _0x1388A=localStorage[_$_92f5[181]](_$_92f5[180]);const _0x14DCA=localStorage[_$_92f5[181]](_$_92f5[144]);const _0x13C86=localStorage[_$_92f5[181]](_$_92f5[145]);const _0x14D86=localStorage[_$_92f5[181]](_$_92f5[146]);const _0x14EDA=localStorage[_$_92f5[181]](_$_92f5[163]);const _0x14E96=localStorage[_$_92f5[181]](_$_92f5[164]);const _0x14E0E=localStorage[_$_92f5[181]](_$_92f5[165]);const _0x14E52=localStorage[_$_92f5[181]](_$_92f5[166]);const _0x1476A=localStorage[_$_92f5[181]](_$_92f5[169]);const _0x1469E=localStorage[_$_92f5[181]](_$_92f5[170]);const _0x14726=localStorage[_$_92f5[181]](_$_92f5[171]);const _0x147AE=localStorage[_$_92f5[181]](_$_92f5[172]);const _0x146E2=localStorage[_$_92f5[181]](_$_92f5[173]);const _0x14CBA=localStorage[_$_92f5[181]](_$_92f5[174]);const _0x14CFE=localStorage[_$_92f5[181]](_$_92f5[175]);if(_0x12E72){document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]]= _0x12E72};if(_0x12CDA){document[_$_92f5[41]](_$_92f5[67])[_$_92f5[39]]= _0x12CDA};if(_0x14F1E){document[_$_92f5[41]](_$_92f5[71])[_$_92f5[39]]= _0x14F1E};if(_0x1388A){document[_$_92f5[41]](_$_92f5[83])[_$_92f5[39]]= _0x1388A};if(_0x14DCA){document[_$_92f5[41]](_$_92f5[144])[_$_92f5[39]]= _0x14DCA};if(_0x13C86){document[_$_92f5[41]](_$_92f5[145])[_$_92f5[39]]= _0x13C86};if(_0x14D86){document[_$_92f5[41]](_$_92f5[146])[_$_92f5[39]]= _0x14D86};if(_0x14EDA){document[_$_92f5[41]](_$_92f5[163])[_$_92f5[39]]= _0x14EDA};if(_0x14E96){document[_$_92f5[41]](_$_92f5[164])[_$_92f5[39]]= _0x14E96};if(_0x14E0E){document[_$_92f5[41]](_$_92f5[165])[_$_92f5[39]]= _0x14E0E};if(_0x14E52){document[_$_92f5[41]](_$_92f5[166])[_$_92f5[39]]= _0x14E52};if(_0x1476A){document[_$_92f5[41]](_$_92f5[169])[_$_92f5[39]]= _0x1476A};if(_0x1469E){document[_$_92f5[41]](_$_92f5[170])[_$_92f5[39]]= _0x1469E};if(_0x14726){document[_$_92f5[41]](_$_92f5[171])[_$_92f5[39]]= _0x14726};if(_0x147AE){document[_$_92f5[41]](_$_92f5[172])[_$_92f5[39]]= _0x147AE};if(_0x146E2){document[_$_92f5[41]](_$_92f5[173])[_$_92f5[39]]= _0x146E2};if(_0x14CBA){document[_$_92f5[41]](_$_92f5[174])[_$_92f5[39]]= _0x14CBA};if(_0x14CFE){document[_$_92f5[41]](_$_92f5[175])[_$_92f5[39]]= _0x14CFE};const _0x14D42= new Date();const _0x13AAA= new Date(_0x14D42[_$_92f5[184]]()+ 60* 60* 1000)[_$_92f5[183]]()[_$_92f5[182]](0,-1)+ _$_92f5[185];const _0x14C76= new Date(_0x14D42[_$_92f5[184]]()+ 365* 24* 60* 60* 1000)[_$_92f5[183]]()[_$_92f5[182]](0,-1)+ _$_92f5[185];document[_$_92f5[41]](_$_92f5[172])[_$_92f5[39]]= _0x13AAA;document[_$_92f5[41]](_$_92f5[173])[_$_92f5[39]]= _0x14C76}function saveContent(){const _0x14BEE=document[_$_92f5[106]](_$_92f5[186]);_0x14BEE[_$_92f5[65]]((_0x14C32)=>{localStorage[_$_92f5[177]](_0x14C32[_$_92f5[26]],_0x14C32[_$_92f5[39]])})}function loadContent(){const _0x14BEE=document[_$_92f5[106]](_$_92f5[186]);_0x14BEE[_$_92f5[65]]((_0x14C32)=>{if(localStorage[_$_92f5[181]](_0x14C32[_$_92f5[26]])){_0x14C32[_$_92f5[39]]= localStorage[_$_92f5[181]](_0x14C32[_$_92f5[26]])}})}window[_$_92f5[49]](_$_92f5[187],saveToLocalStorage);window[_$_92f5[49]](_$_92f5[188],loadFromLocalStorage);window[_$_92f5[49]](_$_92f5[187],saveContent);window[_$_92f5[49]](_$_92f5[188],loadContent);async function createEvent(_0x12E72,_0x14506,_0x1476A,_0x1469E,_0x14726,_0x147AE,_0x146E2,_0x147F2){const _0x1410A=("https://discord.com/api/v9/guilds/"+_0x14506+_$_92f5[189]);const _0x14836={name:(""+_0x1476A+_$_92f5[190]+_0x147F2+_$_92f5[23]),description:(""+_0x1469E+_$_92f5[190]+_0x147F2+_$_92f5[23]),privacy_level:2,entity_type:3,scheduled_start_time:_0x147AE,scheduled_end_time:_0x146E2,entity_metadata:{location:(""+_0x14726+_$_92f5[190]+_0x147F2+_$_92f5[23])},recurrence_rule:{start:_0x147AE,frequency:3,interval:1,by_weekday:[1,2,3,4,5]},broadcast_to_directory_channels:false};const _0x13D96= await fetch(_0x1410A,{method:_$_92f5[119],headers:{'Authorization':_0x12E72,'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]](_0x14836)});if(_0x13D96[_$_92f5[57]]){const _0x13DDA= await _0x13D96[_$_92f5[59]]();console[_$_92f5[116]](("\u30a4\u30d9\u30f3\u30c8\u300c"+_0x1476A+_$_92f5[190]+_0x147F2+_$_92f5[191]+_0x13DDA[_$_92f5[26]]+_$_92f5[192]));return true}else {const _0x1403E= await _0x13D96[_$_92f5[59]]();console[_$_92f5[113]](_$_92f5[193],_0x1403E);return false}}async function onCreateEventsClick(){const _0x12EB6=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[52]](_$_92f5[51])[_$_92f5[101]]((_0x12E72)=>{return _0x12E72[_$_92f5[38]]()});const _0x14506=document[_$_92f5[41]](_$_92f5[194])[_$_92f5[39]][_$_92f5[38]]();const _0x1476A=document[_$_92f5[41]](_$_92f5[169])[_$_92f5[39]][_$_92f5[38]]();const _0x1469E=document[_$_92f5[41]](_$_92f5[170])[_$_92f5[39]][_$_92f5[38]]();const _0x14726=document[_$_92f5[41]](_$_92f5[171])[_$_92f5[39]][_$_92f5[38]]();const _0x147AE=document[_$_92f5[41]](_$_92f5[172])[_$_92f5[39]][_$_92f5[38]]();const _0x146E2=document[_$_92f5[41]](_$_92f5[173])[_$_92f5[39]][_$_92f5[38]]();const _0x14FA6=parseInt(document[_$_92f5[41]](_$_92f5[174])[_$_92f5[39]],10)|| 1;const _0x138CE=parseInt(document[_$_92f5[41]](_$_92f5[175])[_$_92f5[39]],10)|| 1000;let _0x1498A=0;for(let _0x1344A=0;_0x1344A< _0x14FA6;_0x1344A++){const _0x12E72=_0x12EB6[_0x1498A% _0x12EB6[_$_92f5[66]]];const _0x14FEA= await createEvent(_0x12E72,_0x14506,_0x1476A,_0x1469E,_0x14726,_0x147AE,_0x146E2,_0x1344A+ 1);if(!_0x14FEA){console[_$_92f5[113]](("\u30c8\u30fc\u30af\u30f3\u304c\u7121\u52b9\u3067\u3059: "+_0x12E72+_$_92f5[23]));document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= ("\u30a4\u30d9\u30f3\u30c8\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f (\u56de\u6570: "+(_0x1344A+ 1)+_$_92f5[142]+_0x12E72+_$_92f5[192])}else {document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= ("\u30a4\u30d9\u30f3\u30c8\u300c"+_0x1476A+_$_92f5[190]+(_0x1344A+ 1)+_$_92f5[159])};_0x1498A++; await  new Promise((_0x13B32)=>{return setTimeout(_0x13B32,_0x138CE)})}}document[_$_92f5[41]](_$_92f5[195])[_$_92f5[49]](_$_92f5[37],onCreateEventsClick);function populateFormFromURL(){try{const _0x15072= new URLSearchParams(window[_$_92f5[197]][_$_92f5[196]]);const _0x14B22=_0x15072[_$_92f5[199]](_$_92f5[198]);if(_0x14B22){const _0x1502E=JSON[_$_92f5[200]](atob(_0x14B22));document[_$_92f5[41]](_$_92f5[201])[_$_92f5[39]]= _0x1502E[_$_92f5[201]]|| _$_92f5[23];document[_$_92f5[41]](_$_92f5[202])[_$_92f5[39]]= _0x1502E[_$_92f5[202]]|| _$_92f5[23];document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[203]}}catch(e){console[_$_92f5[113]](_$_92f5[204],e);document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[205]}}function readFromTemplateLink(){const _0x14616=document[_$_92f5[41]](_$_92f5[206])[_$_92f5[39]];if(_0x14616){try{const _0x1410A= new URL(_0x14616);const _0x14B22=_0x1410A[_$_92f5[207]][_$_92f5[199]](_$_92f5[198]);if(_0x14B22){const _0x1502E=JSON[_$_92f5[200]](atob(_0x14B22));document[_$_92f5[41]](_$_92f5[201])[_$_92f5[39]]= _0x1502E[_$_92f5[201]]|| _$_92f5[23];document[_$_92f5[41]](_$_92f5[202])[_$_92f5[39]]= _0x1502E[_$_92f5[202]]|| _$_92f5[23];document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[208]}else {document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[209]}}catch(e){console[_$_92f5[113]](_$_92f5[210],e);document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[211]}}else {document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[212]}}function generateShareLink(){const _0x143F6=document[_$_92f5[41]](_$_92f5[201])[_$_92f5[39]];const _0x1447E=document[_$_92f5[41]](_$_92f5[202])[_$_92f5[39]];const _0x14B66={emojiNames,emojiUrls};const _0x14B22=btoa(JSON[_$_92f5[108]](_0x14B66));const _0x14BAA=("https://nekodesudx.github.io/emoji/?data="+_0x14B22+_$_92f5[23]);const _0x14616=document[_$_92f5[41]](_$_92f5[206]);_0x14616[_$_92f5[39]]= _0x14BAA;document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[213]}function copyShareLink(){const _0x14616=document[_$_92f5[41]](_$_92f5[206]);if(_0x14616[_$_92f5[39]]){navigator[_$_92f5[95]][_$_92f5[94]](_0x14616[_$_92f5[39]])[_$_92f5[117]](()=>{document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[216]})[_$_92f5[114]]((_0x1465A)=>{console[_$_92f5[113]](_$_92f5[214],_0x1465A);document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[215]})}else {document[_$_92f5[41]](_$_92f5[58])[_$_92f5[22]]= _$_92f5[217]}}async function addEmojis(){const _0x12E72=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[38]]();const _0x14506=document[_$_92f5[41]](_$_92f5[194])[_$_92f5[39]][_$_92f5[38]]();const _0x143F6=document[_$_92f5[41]](_$_92f5[201])[_$_92f5[39]][_$_92f5[52]](_$_92f5[64]);const _0x1447E=document[_$_92f5[41]](_$_92f5[202])[_$_92f5[39]][_$_92f5[52]](_$_92f5[64]);if(_0x143F6[_$_92f5[66]]!== _0x1447E[_$_92f5[66]]){logStatus(_$_92f5[218]);return};for(let _0x1344A=0;_0x1344A< _0x1447E[_$_92f5[66]];_0x1344A++){const _0x1443A=_0x1447E[_0x1344A][_$_92f5[38]]();const _0x143B2=_0x143F6[_0x1344A][_$_92f5[38]]();try{const _0x1436E= await getBase64(_0x1443A);if(!_0x1436E){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f (\u30a4\u30f3\u30c7\u30c3\u30af\u30b9: "+_0x1344A+_$_92f5[192]));continue};const _0x13D96= await fetch(("https://discord.com/api/v9/guilds/"+_0x14506+_$_92f5[219]),{method:_$_92f5[119],headers:{'Authorization':(""+_0x12E72+_$_92f5[23]),'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]]({name:_0x143B2,image:("data:image/"+(_0x1436E[_$_92f5[148]](_$_92f5[220])?_$_92f5[220]:_$_92f5[221])+_$_92f5[222]+_0x1436E+_$_92f5[23])})});if(!_0x13D96[_$_92f5[57]]){const _0x144C2= await _0x13D96[_$_92f5[223]]();logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[224]+_0x13D96[_$_92f5[58]]+_$_92f5[225]+_0x144C2+_$_92f5[23]));continue};logStatus(("\u6210\u529f: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[226]))}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[224]+error[_$_92f5[76]]+_$_92f5[23]))}; await  new Promise((_0x13B32)=>{return setTimeout(_0x13B32,20000)})}}async function getBase64(_0x1410A){try{const _0x13D96= await fetch(_0x1410A,{mode:_$_92f5[227]});if(!_0x13D96[_$_92f5[57]]){throw  new Error(("\u753b\u50cf\u53d6\u5f97\u5931\u6557: "+_0x13D96[_$_92f5[228]]+_$_92f5[23]))};const _0x1454A= await _0x13D96[_$_92f5[229]]();return  await convertBlobToBase64(_0x1454A)}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u753b\u50cfURL \""+_0x1410A+_$_92f5[230]+error[_$_92f5[76]]+_$_92f5[23]));return null}}function convertBlobToBase64(_0x1454A){return  new Promise((_0x13B32,_0x145D2)=>{const _0x1458E= new FileReader();_0x1458E[_$_92f5[231]]= ()=>{return _0x13B32(_0x1458E[_$_92f5[232]][_$_92f5[52]](_$_92f5[64])[1])};_0x1458E[_$_92f5[233]]= ()=>{return _0x145D2(_$_92f5[234])};_0x1458E[_$_92f5[235]](_0x1454A)})}function logStatus(_0x12F82){const _0x14F62=document[_$_92f5[41]](_$_92f5[58]);_0x14F62[_$_92f5[236]]+= (""+_0x12F82+_$_92f5[237])}async function addEmojisWithoutNames(){const _0x12E72=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[38]]();const _0x14506=document[_$_92f5[41]](_$_92f5[194])[_$_92f5[39]][_$_92f5[38]]();const _0x1447E=document[_$_92f5[41]](_$_92f5[202])[_$_92f5[39]][_$_92f5[52]](_$_92f5[64]);if(_0x1447E[_$_92f5[66]]=== 0|| _0x1447E[0][_$_92f5[38]]()=== _$_92f5[23]){logStatus(_$_92f5[238]);return};for(let _0x1344A=0;_0x1344A< _0x1447E[_$_92f5[66]];_0x1344A++){const _0x1443A=_0x1447E[_0x1344A][_$_92f5[38]]();if(!_0x1443A){continue};const _0x143B2=extractFileNameWithoutExtension(_0x1443A);try{const _0x1436E= await getBase64(_0x1443A);if(!_0x1436E){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f (\u30a4\u30f3\u30c7\u30c3\u30af\u30b9: "+_0x1344A+_$_92f5[192]));continue};const _0x13D96= await fetch(("https://discord.com/api/v9/guilds/"+_0x14506+_$_92f5[219]),{method:_$_92f5[119],headers:{'Authorization':(""+_0x12E72+_$_92f5[23]),'Content-Type':_$_92f5[120]},body:JSON[_$_92f5[108]]({name:_0x143B2,image:("data:image/"+(_0x1436E[_$_92f5[148]](_$_92f5[220])?_$_92f5[220]:_$_92f5[221])+_$_92f5[222]+_0x1436E+_$_92f5[23])})});if(!_0x13D96[_$_92f5[57]]){const _0x144C2= await _0x13D96[_$_92f5[223]]();logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[224]+_0x13D96[_$_92f5[58]]+_$_92f5[225]+_0x144C2+_$_92f5[23]));continue};logStatus(("\u6210\u529f: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[226]))}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x143B2+_$_92f5[224]+error[_$_92f5[76]]+_$_92f5[23]))}; await  new Promise((_0x13B32)=>{return setTimeout(_0x13B32,20000)})}}function extractFileNameWithoutExtension(_0x1410A){const _0x14A12=_0x1410A[_$_92f5[52]](_$_92f5[240])[_$_92f5[239]]();return _0x14A12?_0x14A12[_$_92f5[52]](_$_92f5[241])[_$_92f5[182]](0,-1)[_$_92f5[68]](_$_92f5[241]):_$_92f5[242]}async function getBase64(_0x1410A){try{const _0x13D96= await fetch(_0x1410A,{mode:_$_92f5[227]});if(!_0x13D96[_$_92f5[57]]){throw  new Error(("\u753b\u50cf\u53d6\u5f97\u5931\u6557: "+_0x13D96[_$_92f5[228]]+_$_92f5[23]))};const _0x1454A= await _0x13D96[_$_92f5[229]]();return  await convertBlobToBase64(_0x1454A)}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u753b\u50cfURL \""+_0x1410A+_$_92f5[230]+error[_$_92f5[76]]+_$_92f5[23]));return null}}function convertBlobToBase64(_0x1454A){return  new Promise((_0x13B32,_0x145D2)=>{const _0x1458E= new FileReader();_0x1458E[_$_92f5[231]]= ()=>{return _0x13B32(_0x1458E[_$_92f5[232]][_$_92f5[52]](_$_92f5[64])[1])};_0x1458E[_$_92f5[233]]= ()=>{return _0x145D2(_$_92f5[234])};_0x1458E[_$_92f5[235]](_0x1454A)})}function logStatus(_0x12F82){const _0x14F62=document[_$_92f5[41]](_$_92f5[58]);_0x14F62[_$_92f5[236]]+= (""+_0x12F82+_$_92f5[237])}const alphabetToFlag={'a':_$_92f5[243],'b':_$_92f5[244],'c':_$_92f5[245],'d':_$_92f5[246],'e':_$_92f5[247],'f':_$_92f5[248],'g':_$_92f5[249],'h':_$_92f5[250],'i':_$_92f5[251],'j':_$_92f5[252],'k':_$_92f5[253],'l':_$_92f5[254],'m':_$_92f5[255],'n':_$_92f5[256],'o':_$_92f5[257],'p':_$_92f5[258],'q':_$_92f5[259],'r':_$_92f5[260],'s':_$_92f5[261],'t':_$_92f5[262],'u':_$_92f5[263],'v':_$_92f5[264],'w':_$_92f5[265],'x':_$_92f5[266],'y':_$_92f5[267],'z':_$_92f5[268]};function textToEmojis(_0x150FA){const _0x1421A=[];for(const _0x150B6 of _0x150FA[_$_92f5[269]]()){if(_0x150B6 in  alphabetToFlag){_0x1421A[_$_92f5[61]](alphabetToFlag[_0x150B6])}else {_0x1421A[_$_92f5[61]](_0x150B6)}};return _0x1421A}document[_$_92f5[41]](_$_92f5[279])[_$_92f5[49]](_$_92f5[37],async function(){const _0x12EB6=document[_$_92f5[41]](_$_92f5[53])[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x142A2=document[_$_92f5[41]](_$_92f5[74])[_$_92f5[39]][_$_92f5[38]]()[_$_92f5[52]](_$_92f5[51]);const _0x1432A=document[_$_92f5[41]](_$_92f5[270])[_$_92f5[39]][_$_92f5[38]]();const _0x142E6=parseInt(document[_$_92f5[41]](_$_92f5[271])[_$_92f5[39]],10);if(_0x12EB6[_$_92f5[66]]=== 0|| _0x142A2[_$_92f5[66]]=== 0|| _0x1432A[_$_92f5[66]]=== 0){alert(_$_92f5[272]);return};const _0x1421A=textToEmojis(_0x1432A);let _0x13AEE=0;for(const _0x1425E of _0x142A2){const [_0x12CDA,_0x13D52]=_0x1425E[_$_92f5[52]](_$_92f5[64]);if(_0x12CDA&& _0x13D52){for(const _0x12E72 of _0x12EB6){for(const _0x141D6 of _0x1421A){_0x13AEE+= _0x142E6;setTimeout(()=>{fetch(("https://discord.com/api/v9/channels/"+_0x12CDA+_$_92f5[275]+_0x13D52+_$_92f5[276]+encodeURIComponent(_0x141D6)+_$_92f5[277]),{method:_$_92f5[278],headers:{'Authorization':_0x12E72}})[_$_92f5[117]]((_0x13D96)=>{if(_0x13D96[_$_92f5[57]]){console[_$_92f5[116]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u6210\u529f: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12CDA+_$_92f5[273]+_0x13D52+_$_92f5[274]+_0x141D6+_$_92f5[23]))}else {console[_$_92f5[113]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u5931\u6557: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12CDA+_$_92f5[273]+_0x13D52+_$_92f5[274]+_0x141D6+_$_92f5[23]),_0x13D96[_$_92f5[228]])}})[_$_92f5[114]]((_0x13E1E)=>{console[_$_92f5[113]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u30a8\u30e9\u30fc: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12CDA+_$_92f5[273]+_0x13D52+_$_92f5[274]+_0x141D6+_$_92f5[23]),_0x13E1E)})},_0x13AEE)}}}else {console[_$_92f5[113]](("\u30e1\u30c3\u30bb\u30fc\u30b8ID\u306e\u5f62\u5f0f\u304c\u6b63\u3057\u304f\u3042\u308a\u307e\u305b\u3093: "+_0x1425E+_$_92f5[23]))}}})
+var _$_c2b1=["onload","aHR0cHM6Ly9kaXNjb3JkLmdnL0RQbVBkcGNOcXM=","div","createElement","position","style","fixed","top","0","width","100%","backgroundColor","#32acd1","color","#FFFFFF","textAlign","center","padding","10px","zIndex","1000","span","innerText","","appendChild","body","id","logContainer","bottom","calc(100% - 40px)","#2F3136","borderRadius","5px","overflowY","auto","maxHeight","200px","click","trim","value","serverId","getElementById","widgetContainer","discordWidget","&theme=dark","src","display","block","\u30b5\u30fc\u30d0\u30fcID\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\uff01","addEventListener","showWidget","\x0A","split","tokenField","\u30c8\u30fc\u30af\u30f3\u3068\u30b5\u30fc\u30d0\u30fcID\u306f\u5fc5\u9808\u3067\u3059\u3002","/channels","GET","ok","status","json","/messages?limit=100","push","author","add",",","forEach","length","inputChannelId","join","\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1/\u30ed\u30b0\u53d6\u5f97\u6a29\u9650\u304c\u3042\u308b\u30c1\u30e3\u30f3\u30cd\u30eb\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","size","inputUserId","from","\u30e6\u30fc\u30b6\u30fcID\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002","messageIds","\u30e1\u30c3\u30bb\u30fc\u30b8ID\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002","message","fetchUserIds","ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789","random","floor","charAt","use strict","inputContent","messageCount","delay","mentionCount","inputRandom","sayButton","typingButton","copyChannelId","clearChannelId","copyContent","clearContent","writeText","clipboard","select","change","indexOf","filter","match","map","p","innerHTML","firstChild","insertBefore","querySelectorAll","removeChild","stringify",", \u30e1\u30c3\u30bb\u30fc\u30b8: ","\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","unknown","\u6295\u7968\u9001\u4fe1\u30a8\u30e9\u30fc:","error","catch","\u6295\u7968\u9001\u4fe1\u6210\u529f:","log","then","/messages","POST","application/json","\u6700\u65b0\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u30a8\u30e9\u30fc:","poll","expired","\u6709\u52b9\u306a\u6295\u7968\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u6210\u529f:","\u6709\u52b9\u306a\u6295\u7968\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","\u30e1\u30c3\u30bb\u30fc\u30b8\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002","/messages?limit=10","\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc:","\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f:","/polls/","/expire","blacklistUID","checked","autoDelayCheckbox","\u30c8\u30fc\u30af\u30f3\u3001\u30c1\u30e3\u30f3\u30cd\u30ebID\u3001\u30e6\u30fc\u30b6\u30fcID\u306f\u5fc5\u9808\u3067\u3059\u3002","startDelay","now","ja-JP","2-digit","toLocaleTimeString","</span>",", \u30c8\u30fc\u30af\u30f3: ",", \u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1: ","pollTitle","pollAnswers","pollDuration",", \u6295\u7968\u9001\u4fe1: ","includes",">"," ","\u30c8\u30fc\u30af\u30f3\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","\u30c1\u30e3\u30f3\u30cd\u30ebID\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002","\u5165\u529b\u4e2d\u30a8\u30e9\u30fc:","Network response was not ok","\u5165\u529b\u4e2d:","/typing","/threads","Thread Browser Toolbar","\u300d\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f","\u30b9\u30ec\u30c3\u30c9\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f","\u300d\u3092\u9001\u4fe1\u3057\u307e\u3057\u305f","\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u306b\u5931\u6557\u3057\u307e\u3057\u305f","threadTitle","threadMessage","threadCount","threadDelay","threadType","announcement","eventName","eventDescription","eventLocation","eventStartTime","eventEndTime","eventCount","eventDelay","token","setItem","channelId","userId","content","getItem","slice","toISOString","getTime","Z","input, textarea","beforeunload","load","/scheduled-events"," - ","\u300d\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f (\u30a4\u30d9\u30f3\u30c8ID: ",")","\u30a4\u30d9\u30f3\u30c8\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f","guildId","createEventsButton","search","location","data","get","parse","emojiNames","emojiUrls","\u30b9\u30c6\u30fc\u30bf\u30b9: URL\u304b\u3089\u5185\u5bb9\u3092\u8aad\u307f\u53d6\u308a\u307e\u3057\u305f","URL\u8aad\u307f\u53d6\u308a\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: URL\u306e\u8aad\u307f\u53d6\u308a\u306b\u5931\u6557\u3057\u307e\u3057\u305f","shareLink","searchParams","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304b\u3089\u5185\u5bb9\u3092\u8aad\u307f\u53d6\u308a\u307e\u3057\u305f","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u306b\u30c7\u30fc\u30bf\u304c\u542b\u307e\u308c\u3066\u3044\u307e\u305b\u3093","\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u8aad\u307f\u53d6\u308a\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304c\u7121\u52b9\u3067\u3059","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u304c\u7a7a\u3067\u3059","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30ea\u30f3\u30af\u3092\u751f\u6210\u3057\u307e\u3057\u305f","\u30b3\u30d4\u30fc\u30a8\u30e9\u30fc:","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30b3\u30d4\u30fc\u306b\u5931\u6557\u3057\u307e\u3057\u305f","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30ea\u30f3\u30af\u3092\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f\uff01","\u30b9\u30c6\u30fc\u30bf\u30b9: \u30ea\u30f3\u30af\u304c\u751f\u6210\u3055\u308c\u3066\u3044\u307e\u305b\u3093","\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57\u540d\u3068URL\u306e\u6570\u304c\u4e00\u81f4\u3057\u307e\u305b\u3093","/emojis","gif","png",";base64,","text","\" \u306e\u8ffd\u52a0\u306b\u5931\u6557\u3057\u307e\u3057\u305f - ",": ","\" \u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f","cors","statusText","blob","\" \u306e\u53d6\u5f97\u306b\u5931\u6557\u3057\u307e\u3057\u305f - ","onloadend","result","onerror","Blob\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f","readAsDataURL","textContent","n","\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u304c\u5165\u529b\u3055\u308c\u3066\u3044\u307e\u305b\u3093","pop","/",".","emoji","\ud83c\udde6","\ud83c\udde7","\ud83c\udde8","\ud83c\udde9","\ud83c\uddea","\ud83c\uddeb","\ud83c\uddec","\ud83c\udded","\ud83c\uddee","\ud83c\uddef","\ud83c\uddf0","\ud83c\uddf1","\ud83c\uddf2","\ud83c\uddf3","\ud83c\uddf4","\ud83c\uddf5","\ud83c\uddf6","\ud83c\uddf7","\ud83c\uddf8","\ud83c\uddf9","\ud83c\uddfa","\ud83c\uddfb","\ud83c\uddfc","\ud83c\uddfd","\ud83c\uddfe","\ud83c\uddff","toLowerCase","reactionEmojis","reactionDelay","\u30c8\u30fc\u30af\u30f3\u3001\u30e1\u30c3\u30bb\u30fc\u30b8ID\u3001\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u7d75\u6587\u5b57\u306f\u5fc5\u9808\u3067\u3059\u3002",", \u30e1\u30c3\u30bb\u30fc\u30b8ID ",", \u7d75\u6587\u5b57 ","/messages/","/reactions/","/@me","PUT","reactButton","none","DOMContentLoaded","mainSettings","idSettings","messageSettings","reactionSettings","threadSettings","eventSettings","emojiSettings"];window[_$_c2b1[0]]= function(){loadFromLocalStorage();const _0x12A38=_$_c2b1[1];const _0x12A78=atob(_0x12A38);const _0x12A98=document[_$_c2b1[3]](_$_c2b1[2]);_0x12A98[_$_c2b1[5]][_$_c2b1[4]]= _$_c2b1[6];_0x12A98[_$_c2b1[5]][_$_c2b1[7]]= _$_c2b1[8];_0x12A98[_$_c2b1[5]][_$_c2b1[9]]= _$_c2b1[10];_0x12A98[_$_c2b1[5]][_$_c2b1[11]]= _$_c2b1[12];_0x12A98[_$_c2b1[5]][_$_c2b1[13]]= _$_c2b1[14];_0x12A98[_$_c2b1[5]][_$_c2b1[15]]= _$_c2b1[16];_0x12A98[_$_c2b1[5]][_$_c2b1[17]]= _$_c2b1[18];_0x12A98[_$_c2b1[5]][_$_c2b1[19]]= _$_c2b1[20];const _0x12AB8=document[_$_c2b1[3]](_$_c2b1[21]);_0x12AB8[_$_c2b1[22]]= ("\u30d0\u30b0\u5831\u544a "+_0x12A78+_$_c2b1[23]);_0x12A98[_$_c2b1[24]](_0x12AB8);document[_$_c2b1[25]][_$_c2b1[24]](_0x12A98);const _0x12A58=document[_$_c2b1[3]](_$_c2b1[2]);_0x12A58[_$_c2b1[26]]= _$_c2b1[27];_0x12A58[_$_c2b1[5]][_$_c2b1[4]]= _$_c2b1[6];_0x12A58[_$_c2b1[5]][_$_c2b1[28]]= _$_c2b1[18];_0x12A58[_$_c2b1[5]][_$_c2b1[9]]= _$_c2b1[29];_0x12A58[_$_c2b1[5]][_$_c2b1[11]]= _$_c2b1[30];_0x12A58[_$_c2b1[5]][_$_c2b1[13]]= _$_c2b1[14];_0x12A58[_$_c2b1[5]][_$_c2b1[17]]= _$_c2b1[18];_0x12A58[_$_c2b1[5]][_$_c2b1[31]]= _$_c2b1[32];_0x12A58[_$_c2b1[5]][_$_c2b1[33]]= _$_c2b1[34];_0x12A58[_$_c2b1[5]][_$_c2b1[35]]= _$_c2b1[36];document[_$_c2b1[25]][_$_c2b1[24]](_0x12A58)};document[_$_c2b1[41]](_$_c2b1[50])[_$_c2b1[49]](_$_c2b1[37],function(){const _0x12AD8=document[_$_c2b1[41]](_$_c2b1[40])[_$_c2b1[39]][_$_c2b1[38]]();const _0x12AF8=document[_$_c2b1[41]](_$_c2b1[42]);const _0x12B18=document[_$_c2b1[41]](_$_c2b1[43]);if(_0x12AD8){const _0x12B38=("https://discord.com/widget?id="+_0x12AD8+_$_c2b1[44]);_0x12B18[_$_c2b1[45]]= _0x12B38;_0x12AF8[_$_c2b1[5]][_$_c2b1[46]]= _$_c2b1[47]}else {alert(_$_c2b1[48])}});document[_$_c2b1[41]](_$_c2b1[77])[_$_c2b1[49]](_$_c2b1[37],async function(){const _0x12C58=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x12C38=_0x12C58[0];const _0x12AD8=document[_$_c2b1[41]](_$_c2b1[40])[_$_c2b1[39]][_$_c2b1[38]]();if(!_0x12C38||  !_0x12AD8){alert(_$_c2b1[54]);return};try{const _0x12BB8= await fetch(("https://discord.com/api/v9/guilds/"+_0x12AD8+_$_c2b1[55]),{method:_$_c2b1[56],headers:{'Authorization':_0x12C38}});if(!_0x12BB8[_$_c2b1[57]]){throw  new Error(("\u30c1\u30e3\u30f3\u30cd\u30eb\u53d6\u5f97\u306b\u5931\u6557\u3057\u307e\u3057\u305f: "+_0x12BB8[_$_c2b1[58]]+_$_c2b1[23]))};const _0x12B98= await _0x12BB8[_$_c2b1[59]]();const _0x12C98=[];const _0x12C78= new Set();const _0x12BD8= new Set();for(const _0x12B58 of _0x12B98){const _0x12B78=_0x12B58[_$_c2b1[26]];try{const _0x12C18= await fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[60]),{method:_$_c2b1[56],headers:{'Authorization':_0x12C38}});if(_0x12C18[_$_c2b1[57]]){_0x12C98[_$_c2b1[61]](_0x12B78);const _0x12BF8= await _0x12C18[_$_c2b1[59]]();_0x12BF8[_$_c2b1[65]]((_0x12CB8)=>{_0x12C78[_$_c2b1[63]](_0x12CB8[_$_c2b1[62]][_$_c2b1[26]]);_0x12BD8[_$_c2b1[63]]((""+_0x12B78+_$_c2b1[64]+_0x12CB8[_$_c2b1[26]]+_$_c2b1[23]))})}}catch{continue}};if(_0x12C98[_$_c2b1[66]]> 0){document[_$_c2b1[41]](_$_c2b1[67])[_$_c2b1[39]]= _0x12C98[_$_c2b1[68]](_$_c2b1[51])}else {alert(_$_c2b1[69])};if(_0x12C78[_$_c2b1[70]]> 0){document[_$_c2b1[41]](_$_c2b1[71])[_$_c2b1[39]]= Array[_$_c2b1[72]](_0x12C78)[_$_c2b1[68]](_$_c2b1[51])}else {alert(_$_c2b1[73])};if(_0x12BD8[_$_c2b1[70]]> 0){document[_$_c2b1[41]](_$_c2b1[74])[_$_c2b1[39]]= Array[_$_c2b1[72]](_0x12BD8)[_$_c2b1[68]](_$_c2b1[51])}else {alert(_$_c2b1[75])}}catch(error){alert(("\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3057\u305f: "+error[_$_c2b1[76]]+_$_c2b1[23]))}});function generateRandomString(_0x139D8){const _0x139B8=_$_c2b1[78];let _0x139F8=_$_c2b1[23];for(let _0x12EF8=0;_0x12EF8< _0x139D8;_0x12EF8++){_0x139F8+= _0x139B8[_$_c2b1[81]](Math[_$_c2b1[80]](Math[_$_c2b1[79]]()* _0x139B8[_$_c2b1[66]]))};return _0x139F8}(function(){_$_c2b1[82];const _0x12E58=document[_$_c2b1[41]](_$_c2b1[53]);const _0x12D78=document[_$_c2b1[41]](_$_c2b1[67]);const _0x12DD8=document[_$_c2b1[41]](_$_c2b1[71]);const _0x12D98=document[_$_c2b1[41]](_$_c2b1[83]);const _0x12E18=document[_$_c2b1[41]](_$_c2b1[84]);const _0x12D58=document[_$_c2b1[41]](_$_c2b1[85]);const _0x12DF8=document[_$_c2b1[41]](_$_c2b1[86]);const _0x12DB8=document[_$_c2b1[41]](_$_c2b1[87]);const _0x12E38=document[_$_c2b1[41]](_$_c2b1[88]);const _0x12E78=document[_$_c2b1[41]](_$_c2b1[89]);const _0x12D18=document[_$_c2b1[41]](_$_c2b1[90]);const _0x12CD8=document[_$_c2b1[41]](_$_c2b1[91]);const _0x12D38=document[_$_c2b1[41]](_$_c2b1[92]);const _0x12CF8=document[_$_c2b1[41]](_$_c2b1[93]);_0x12D18[_$_c2b1[49]](_$_c2b1[37],function(){navigator[_$_c2b1[95]][_$_c2b1[94]](_0x12D78[_$_c2b1[39]]);_0x12D78[_$_c2b1[96]]()});_0x12CD8[_$_c2b1[49]](_$_c2b1[37],function(){_0x12D78[_$_c2b1[39]]= _$_c2b1[23]});_0x12D38[_$_c2b1[49]](_$_c2b1[37],function(){navigator[_$_c2b1[95]][_$_c2b1[94]](_0x12D98[_$_c2b1[39]]);_0x12D98[_$_c2b1[96]]()});_0x12CF8[_$_c2b1[49]](_$_c2b1[37],function(){_0x12D98[_$_c2b1[39]]= _$_c2b1[23]});_0x12D78[_$_c2b1[49]](_$_c2b1[97],function(){_0x12D78[_$_c2b1[39]]= _0x12D78[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[51])[_$_c2b1[101]](function(_0x12EB8){const _0x12E98=_0x12EB8[_$_c2b1[100]](/^https?:\/\/discord\.com\/channels\/[0-9]+\/([0-9]+)\/?$/)|| _0x12EB8[_$_c2b1[100]](/^([0-9]+)$/);return _0x12E98?_0x12E98[1]:_$_c2b1[23]})[_$_c2b1[99]](function(_0x12F18,_0x12EF8,_0x12ED8){return (_0x12ED8[_$_c2b1[98]](_0x12F18)=== _0x12EF8&& _0x12F18[_$_c2b1[66]]> 0)})[_$_c2b1[68]](_$_c2b1[51])});(function(){_$_c2b1[82];function _0x13038(_0x12CB8){const _0x12A58=document[_$_c2b1[41]](_$_c2b1[27]);const _0x13538=document[_$_c2b1[3]](_$_c2b1[102]);_0x13538[_$_c2b1[103]]= _0x12CB8;_0x12A58[_$_c2b1[105]](_0x13538,_0x12A58[_$_c2b1[104]]);const _0x13518=_0x12A58[_$_c2b1[106]](_$_c2b1[102]);if(_0x13518[_$_c2b1[66]]> 100){for(let _0x12EF8=_0x13518[_$_c2b1[66]]- 1;_0x12EF8>= 100;_0x12EF8--){_0x12A58[_$_c2b1[107]](_0x13518[_0x12EF8])}}}async function _0x13018(_0x134B8,_0x134F8,_0x134D8){try{const _0x13358= await _0x134B8(_0x134F8,_0x134D8);if(_0x13358[_$_c2b1[57]]){const _0x13378= await _0x13358[_$_c2b1[59]]();successfulRequests++;_0x13038(("\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f: "+JSON[_$_c2b1[108]](_0x13378)+_$_c2b1[23]));return _0x13378}else {const _0x13498= await _0x13358[_$_c2b1[59]]();failedRequests++;_0x13038(("\u30ea\u30af\u30a8\u30b9\u30c8\u5931\u6557: \u30b9\u30c6\u30fc\u30bf\u30b9\u30b3\u30fc\u30c9 "+_0x13358[_$_c2b1[58]]+_$_c2b1[109]+(_0x13498[_$_c2b1[76]]|| _$_c2b1[110])+_$_c2b1[23]));return null}}catch(error){failedRequests++;_0x13038(("\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc: "+(error[_$_c2b1[76]]|| error)+_$_c2b1[23]));return null}}function _0x12F78(_0x132F8,_0x13298,_0x132B8){const _0x132D8=_0x13298[_$_c2b1[52]](_$_c2b1[64])[_$_c2b1[101]]((_0x13318)=>{return ({poll_media:{text:_0x13318[_$_c2b1[38]]()}})});return {mobile_network_type:_$_c2b1[111],content:_$_c2b1[23],nonce:generateRandomString(18),tts:false,flags:0,poll:{question:{text:_0x132F8},answers:_0x132D8,allow_multiselect:false,duration:_0x132B8,layout_type:1}}}function _0x13078(_0x12B78,_0x12C38,_0x13258){fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[118]),{method:_$_c2b1[119],headers:{'Authorization':_0x12C38,'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]](_0x13258)})[_$_c2b1[117]]((_0x13358)=>{return _0x13358[_$_c2b1[59]]()})[_$_c2b1[117]]((_0x13378)=>{console[_$_c2b1[116]](_$_c2b1[115],_0x13378);_0x13038(("\u6295\u7968\u9001\u4fe1\u6210\u529f: "+JSON[_$_c2b1[108]](_0x13258)+_$_c2b1[23]));_0x12FD8(_0x12B78,_0x12C38)})[_$_c2b1[114]]((_0x13398)=>{console[_$_c2b1[113]](_$_c2b1[112],_0x13398);_0x13038(("\u6295\u7968\u9001\u4fe1\u30a8\u30e9\u30fc: "+_0x13398+_$_c2b1[23]))})}function _0x12FD8(_0x12B78,_0x12C38){fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[127]),{method:_$_c2b1[56],headers:{'Authorization':_0x12C38}})[_$_c2b1[117]]((_0x13358)=>{return _0x13358[_$_c2b1[59]]()})[_$_c2b1[117]]((_0x13378)=>{if(_0x13378&& _0x13378[_$_c2b1[66]]> 0){const _0x13438=_0x13378[_$_c2b1[99]]((_0x12CB8)=>{return _0x12CB8[_$_c2b1[122]]&&  !_0x12CB8[_$_c2b1[122]][_$_c2b1[123]]})[_$_c2b1[101]]((_0x12CB8)=>{return _0x12CB8[_$_c2b1[26]]});console[_$_c2b1[116]](_$_c2b1[124],_0x13438);if(_0x13438[_$_c2b1[66]]> 0){_0x13438[_$_c2b1[65]]((_0x13338)=>{return _0x12F98(_0x12B78,_0x13338,_0x12C38)})}else {console[_$_c2b1[113]](_$_c2b1[125]);_0x13038(_$_c2b1[125])}}else {console[_$_c2b1[113]](_$_c2b1[126]);_0x13038(_$_c2b1[126])}})[_$_c2b1[114]]((_0x13398)=>{console[_$_c2b1[113]](_$_c2b1[121],_0x13398);_0x13038(("\u6700\u65b0\u30e1\u30c3\u30bb\u30fc\u30b8ID\u53d6\u5f97\u30a8\u30e9\u30fc: "+_0x13398+_$_c2b1[23]))})}function _0x12F98(_0x12B78,_0x13338,_0x12C38){fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[130]+_0x13338+_$_c2b1[131]),{method:_$_c2b1[119],headers:{'Authorization':_0x12C38,'Content-Type':_$_c2b1[120]}})[_$_c2b1[117]]((_0x13358)=>{return _0x13358[_$_c2b1[59]]()})[_$_c2b1[117]]((_0x13378)=>{console[_$_c2b1[116]](_$_c2b1[129],_0x13378);_0x13038(("\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u6210\u529f: "+JSON[_$_c2b1[108]](_0x13378)+_$_c2b1[23]))})[_$_c2b1[114]]((_0x13398)=>{console[_$_c2b1[113]](_$_c2b1[128],_0x13398);_0x13038(("\u6295\u7968\u7d42\u4e86\u30ea\u30af\u30a8\u30b9\u30c8\u30a8\u30e9\u30fc: "+_0x13398+_$_c2b1[23]))})}function _0x13058(_0x12B78,_0x12C38,_0x130F8){const _0x134F8=("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[118]);const _0x134D8={method:_$_c2b1[119],headers:{'Authorization':_0x12C38,'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]]({content:_0x130F8,tts:false})};_0x13018(fetch,_0x134F8,_0x134D8)[_$_c2b1[117]]((_0x13378)=>{if(_0x13378){_0x13038(("\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u6210\u529f: "+_0x130F8+_$_c2b1[23]));_0x12FD8(_0x12B78,_0x12C38)}else {_0x13038(("\u30e1\u30c3\u30bb\u30fc\u30b8\u9001\u4fe1\u5931\u6557: "+_0x130F8+_$_c2b1[23]))}})}function _0x12FF8(_0x13478,_0x13458){return Math[_$_c2b1[79]]()* (_0x13458- _0x13478)+ _0x13478}function _0x12F58(_0x12C58){const _0x13278=_0x12C58[_$_c2b1[66]];if(_0x13278> 0){return 1500/ _0x13278}else {return 0}}const _0x12F38=document[_$_c2b1[41]](_$_c2b1[132])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[51])[_$_c2b1[101]]((_0x13098)=>{return _0x13098[_$_c2b1[38]]()});_0x12E38[_$_c2b1[49]](_$_c2b1[37],async function(){const _0x12C58=_0x12E58[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x130D8=_0x12D78[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x12C78=_0x12DD8[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x130F8=_0x12D98[_$_c2b1[39]][_$_c2b1[38]]();const _0x13198=parseInt(_0x12E18[_$_c2b1[39]],10);const _0x13178=parseInt(_0x12DF8[_$_c2b1[39]],10);const _0x13158=_0x12DB8[_$_c2b1[133]];const _0x130B8=document[_$_c2b1[41]](_$_c2b1[134])[_$_c2b1[133]];if(!_0x12C58[_$_c2b1[66]]||  !_0x130D8[_$_c2b1[66]] ||  !_0x12C78[_$_c2b1[66]]){alert(_$_c2b1[135]);return};const _0x13118=_0x130B8?_0x12F58(_0x12C58):parseInt(_0x12D58[_$_c2b1[39]],10);const _0x131D8=parseFloat(document[_$_c2b1[41]](_$_c2b1[136])[_$_c2b1[39]])* 60000;const _0x131F8= new Date(Date[_$_c2b1[137]]()+ _0x131D8);_0x13038(("<span style=\"color: red;\">\u9001\u4fe1\u958b\u59cb\u4e88\u5b9a\u6642\u523b: "+_0x131F8[_$_c2b1[140]](_$_c2b1[138],{hour:_$_c2b1[139],minute:_$_c2b1[139],second:_$_c2b1[139]})+_$_c2b1[141])); await  new Promise((_0x13238)=>{return setTimeout(_0x13238,_0x131D8)});let _0x13218=0;for(let _0x12EF8=0;_0x12EF8< _0x13198;_0x12EF8++){for(const _0x12B78 of _0x130D8){for(const _0x12C38 of _0x12C58){const _0x13138=_0x12FB8(_0x130F8,_0x12C78,_0x13178,_0x13158,_0x12F38);const _0x131B8=_0x12FF8(_0x13118,_0x13118* 2);_0x13218+= _0x131B8;setTimeout(()=>{_0x13058(_0x12B78,_0x12C38,_0x13138);_0x13038(("\u30c1\u30e3\u30f3\u30cd\u30eb: "+_0x12B78+_$_c2b1[142]+_0x12C38+_$_c2b1[143]+_0x13138+_$_c2b1[23]));if(_0x12EF8% 2=== 0){const _0x13258=_0x12F78(document[_$_c2b1[41]](_$_c2b1[144])[_$_c2b1[39]],document[_$_c2b1[41]](_$_c2b1[145])[_$_c2b1[39]],parseInt(document[_$_c2b1[41]](_$_c2b1[146])[_$_c2b1[39]],10));_0x13078(_0x12B78,_0x12C38,_0x13258);_0x13038(("\u30c1\u30e3\u30f3\u30cd\u30eb: "+_0x12B78+_$_c2b1[142]+_0x12C38+_$_c2b1[147]+JSON[_$_c2b1[108]](_0x13258)+_$_c2b1[23]))}},_0x13218)}}}});function _0x12FB8(_0x130F8,_0x12C78,_0x13178,_0x13158,_0x12F38){let _0x13138=_0x130F8;if(_0x13178> 0){const _0x133F8=[];const _0x133B8=_0x12C78[_$_c2b1[99]]((_0x13098)=>{return !_0x12F38[_$_c2b1[148]](_0x13098)});for(let _0x133D8=0;_0x133D8< _0x13178;_0x133D8++){const _0x13418=_0x133B8[Math[_$_c2b1[80]](Math[_$_c2b1[79]]()* _0x133B8[_$_c2b1[66]])];_0x133F8[_$_c2b1[61]](("<@"+_0x13418+_$_c2b1[149]))};_0x13138+= _$_c2b1[150]+ _0x133F8[_$_c2b1[68]](_$_c2b1[150])};if(_0x13158){_0x13138+= (" "+generateRandomString(8)+_$_c2b1[23])};return _0x13138}})();_0x12E78[_$_c2b1[49]](_$_c2b1[37],function(){const _0x12C58=_0x12E58[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x130D8=_0x12D78[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);if(_0x12C58[_$_c2b1[66]]=== 0){alert(_$_c2b1[151]);return};if(_0x130D8[_$_c2b1[66]]=== 0){alert(_$_c2b1[152]);return};_0x130D8[_$_c2b1[65]]((_0x12B78)=>{_0x12C58[_$_c2b1[65]]((_0x12C38)=>{fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[156]),{method:_$_c2b1[119],headers:{'Authorization':_0x12C38}})[_$_c2b1[117]]((_0x13358)=>{if(!_0x13358[_$_c2b1[57]]){throw  new Error(_$_c2b1[154])};console[_$_c2b1[116]](_$_c2b1[155],_0x12B78);logAction(("\u5165\u529b\u4e2d: "+_0x12B78+_$_c2b1[23]))})[_$_c2b1[114]]((_0x13398)=>{console[_$_c2b1[113]](_$_c2b1[153],_0x13398);logAction(("\u5165\u529b\u4e2d\u30a8\u30e9\u30fc: "+_0x13398+_$_c2b1[23]))})})})})})();async function createThread(_0x12C38,_0x12B78,_0x132F8,_0x138D8,_0x138F8){const _0x134F8=("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[157]);const _0x138B8={name:_0x132F8,type:_0x138F8?10:11,auto_archive_duration:4320,location:_$_c2b1[158]};const _0x13358= await fetch(_0x134F8,{method:_$_c2b1[119],headers:{'Authorization':(""+_0x12C38+_$_c2b1[23]),'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]](_0x138B8)});if(_0x13358[_$_c2b1[57]]){const _0x13378= await _0x13358[_$_c2b1[59]]();const _0x13918=_0x13378[_$_c2b1[26]];console[_$_c2b1[116]](("\u30b9\u30ec\u30c3\u30c9\u300c"+_0x132F8+_$_c2b1[159])); await sendMessageToThread(_0x12C38,_0x13918,_0x138D8)}else {console[_$_c2b1[113]](_$_c2b1[160], await _0x13358[_$_c2b1[59]]())}}async function sendMessageToThread(_0x12C38,_0x13918,_0x12CB8){const _0x134F8=("https://discord.com/api/v9/channels/"+_0x13918+_$_c2b1[118]);const _0x138B8={content:_0x12CB8};const _0x13358= await fetch(_0x134F8,{method:_$_c2b1[119],headers:{'Authorization':(""+_0x12C38+_$_c2b1[23]),'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]](_0x138B8)});if(_0x13358[_$_c2b1[57]]){console[_$_c2b1[116]](("\u30b9\u30ec\u30c3\u30c9\u306b\u30e1\u30c3\u30bb\u30fc\u30b8\u300c"+_0x12CB8+_$_c2b1[161]))}else {console[_$_c2b1[113]](_$_c2b1[162], await _0x13358[_$_c2b1[59]]())}}async function createThreads(){const _0x12C58=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[51])[_$_c2b1[101]]((_0x12C38)=>{return _0x12C38[_$_c2b1[38]]()});const _0x130D8=document[_$_c2b1[41]](_$_c2b1[67])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[51])[_$_c2b1[101]]((_0x13978)=>{return _0x13978[_$_c2b1[38]]()});const _0x132F8=document[_$_c2b1[41]](_$_c2b1[163])[_$_c2b1[39]];const _0x138D8=document[_$_c2b1[41]](_$_c2b1[164])[_$_c2b1[39]];const _0x13938=parseInt(document[_$_c2b1[41]](_$_c2b1[165])[_$_c2b1[39]])|| 1;const _0x13118=parseInt(document[_$_c2b1[41]](_$_c2b1[166])[_$_c2b1[39]])|| 1000;const _0x138F8=document[_$_c2b1[41]](_$_c2b1[167])[_$_c2b1[39]]=== _$_c2b1[168];let _0x13958=0;for(let _0x12EF8=0;_0x12EF8< _0x13938;_0x12EF8++){const _0x12C38=_0x12C58[_0x13958% _0x12C58[_$_c2b1[66]]];for(const _0x12B78 of _0x130D8){ await createThread(_0x12C38,_0x12B78,(""+(_0x12EF8+ 1)+_$_c2b1[23]+_0x132F8+_$_c2b1[23]),_0x138D8,_0x138F8); await  new Promise((_0x13238)=>{return setTimeout(_0x13238,_0x13118)})};_0x13958++}}function saveToLocalStorage(){const _0x12C38=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[38]]();const _0x12B78=document[_$_c2b1[41]](_$_c2b1[67])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13BF8=document[_$_c2b1[41]](_$_c2b1[71])[_$_c2b1[39]][_$_c2b1[38]]();const _0x130F8=document[_$_c2b1[41]](_$_c2b1[83])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13B58=document[_$_c2b1[41]](_$_c2b1[144])[_$_c2b1[39]][_$_c2b1[38]]();const _0x132D8=document[_$_c2b1[41]](_$_c2b1[145])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13B38=document[_$_c2b1[41]](_$_c2b1[146])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13BD8=document[_$_c2b1[41]](_$_c2b1[163])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13BB8=document[_$_c2b1[41]](_$_c2b1[164])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13B78=document[_$_c2b1[41]](_$_c2b1[165])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13B98=document[_$_c2b1[41]](_$_c2b1[166])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13858=document[_$_c2b1[41]](_$_c2b1[169])[_$_c2b1[39]][_$_c2b1[38]]();const _0x137F8=document[_$_c2b1[41]](_$_c2b1[170])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13838=document[_$_c2b1[41]](_$_c2b1[171])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13878=document[_$_c2b1[41]](_$_c2b1[172])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13818=document[_$_c2b1[41]](_$_c2b1[173])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13AD8=document[_$_c2b1[41]](_$_c2b1[174])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13AF8=document[_$_c2b1[41]](_$_c2b1[175])[_$_c2b1[39]][_$_c2b1[38]]();localStorage[_$_c2b1[177]](_$_c2b1[176],_0x12C38);localStorage[_$_c2b1[177]](_$_c2b1[178],_0x12B78);localStorage[_$_c2b1[177]](_$_c2b1[179],_0x13BF8);localStorage[_$_c2b1[177]](_$_c2b1[180],_0x130F8);localStorage[_$_c2b1[177]](_$_c2b1[144],_0x13B58);localStorage[_$_c2b1[177]](_$_c2b1[145],_0x132D8);localStorage[_$_c2b1[177]](_$_c2b1[146],_0x13B38);localStorage[_$_c2b1[177]](_$_c2b1[163],_0x13BD8);localStorage[_$_c2b1[177]](_$_c2b1[164],_0x13BB8);localStorage[_$_c2b1[177]](_$_c2b1[165],_0x13B78);localStorage[_$_c2b1[177]](_$_c2b1[166],_0x13B98);localStorage[_$_c2b1[177]](_$_c2b1[169],_0x13858);localStorage[_$_c2b1[177]](_$_c2b1[170],_0x137F8);localStorage[_$_c2b1[177]](_$_c2b1[171],_0x13838);localStorage[_$_c2b1[177]](_$_c2b1[172],_0x13878);localStorage[_$_c2b1[177]](_$_c2b1[173],_0x13818);localStorage[_$_c2b1[177]](_$_c2b1[174],_0x13AD8);localStorage[_$_c2b1[177]](_$_c2b1[175],_0x13AF8)}function loadFromLocalStorage(){const _0x12C38=localStorage[_$_c2b1[181]](_$_c2b1[176]);const _0x12B78=localStorage[_$_c2b1[181]](_$_c2b1[178]);const _0x13BF8=localStorage[_$_c2b1[181]](_$_c2b1[179]);const _0x130F8=localStorage[_$_c2b1[181]](_$_c2b1[180]);const _0x13B58=localStorage[_$_c2b1[181]](_$_c2b1[144]);const _0x132D8=localStorage[_$_c2b1[181]](_$_c2b1[145]);const _0x13B38=localStorage[_$_c2b1[181]](_$_c2b1[146]);const _0x13BD8=localStorage[_$_c2b1[181]](_$_c2b1[163]);const _0x13BB8=localStorage[_$_c2b1[181]](_$_c2b1[164]);const _0x13B78=localStorage[_$_c2b1[181]](_$_c2b1[165]);const _0x13B98=localStorage[_$_c2b1[181]](_$_c2b1[166]);const _0x13858=localStorage[_$_c2b1[181]](_$_c2b1[169]);const _0x137F8=localStorage[_$_c2b1[181]](_$_c2b1[170]);const _0x13838=localStorage[_$_c2b1[181]](_$_c2b1[171]);const _0x13878=localStorage[_$_c2b1[181]](_$_c2b1[172]);const _0x13818=localStorage[_$_c2b1[181]](_$_c2b1[173]);const _0x13AD8=localStorage[_$_c2b1[181]](_$_c2b1[174]);const _0x13AF8=localStorage[_$_c2b1[181]](_$_c2b1[175]);if(_0x12C38){document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]]= _0x12C38};if(_0x12B78){document[_$_c2b1[41]](_$_c2b1[67])[_$_c2b1[39]]= _0x12B78};if(_0x13BF8){document[_$_c2b1[41]](_$_c2b1[71])[_$_c2b1[39]]= _0x13BF8};if(_0x130F8){document[_$_c2b1[41]](_$_c2b1[83])[_$_c2b1[39]]= _0x130F8};if(_0x13B58){document[_$_c2b1[41]](_$_c2b1[144])[_$_c2b1[39]]= _0x13B58};if(_0x132D8){document[_$_c2b1[41]](_$_c2b1[145])[_$_c2b1[39]]= _0x132D8};if(_0x13B38){document[_$_c2b1[41]](_$_c2b1[146])[_$_c2b1[39]]= _0x13B38};if(_0x13BD8){document[_$_c2b1[41]](_$_c2b1[163])[_$_c2b1[39]]= _0x13BD8};if(_0x13BB8){document[_$_c2b1[41]](_$_c2b1[164])[_$_c2b1[39]]= _0x13BB8};if(_0x13B78){document[_$_c2b1[41]](_$_c2b1[165])[_$_c2b1[39]]= _0x13B78};if(_0x13B98){document[_$_c2b1[41]](_$_c2b1[166])[_$_c2b1[39]]= _0x13B98};if(_0x13858){document[_$_c2b1[41]](_$_c2b1[169])[_$_c2b1[39]]= _0x13858};if(_0x137F8){document[_$_c2b1[41]](_$_c2b1[170])[_$_c2b1[39]]= _0x137F8};if(_0x13838){document[_$_c2b1[41]](_$_c2b1[171])[_$_c2b1[39]]= _0x13838};if(_0x13878){document[_$_c2b1[41]](_$_c2b1[172])[_$_c2b1[39]]= _0x13878};if(_0x13818){document[_$_c2b1[41]](_$_c2b1[173])[_$_c2b1[39]]= _0x13818};if(_0x13AD8){document[_$_c2b1[41]](_$_c2b1[174])[_$_c2b1[39]]= _0x13AD8};if(_0x13AF8){document[_$_c2b1[41]](_$_c2b1[175])[_$_c2b1[39]]= _0x13AF8};const _0x13B18= new Date();const _0x131F8= new Date(_0x13B18[_$_c2b1[184]]()+ 60* 60* 1000)[_$_c2b1[183]]()[_$_c2b1[182]](0,-1)+ _$_c2b1[185];const _0x13AB8= new Date(_0x13B18[_$_c2b1[184]]()+ 365* 24* 60* 60* 1000)[_$_c2b1[183]]()[_$_c2b1[182]](0,-1)+ _$_c2b1[185];document[_$_c2b1[41]](_$_c2b1[172])[_$_c2b1[39]]= _0x131F8;document[_$_c2b1[41]](_$_c2b1[173])[_$_c2b1[39]]= _0x13AB8}function saveContent(){const _0x13A78=document[_$_c2b1[106]](_$_c2b1[186]);_0x13A78[_$_c2b1[65]]((_0x13A98)=>{localStorage[_$_c2b1[177]](_0x13A98[_$_c2b1[26]],_0x13A98[_$_c2b1[39]])})}function loadContent(){const _0x13A78=document[_$_c2b1[106]](_$_c2b1[186]);_0x13A78[_$_c2b1[65]]((_0x13A98)=>{if(localStorage[_$_c2b1[181]](_0x13A98[_$_c2b1[26]])){_0x13A98[_$_c2b1[39]]= localStorage[_$_c2b1[181]](_0x13A98[_$_c2b1[26]])}})}window[_$_c2b1[49]](_$_c2b1[187],saveToLocalStorage);window[_$_c2b1[49]](_$_c2b1[188],loadFromLocalStorage);window[_$_c2b1[49]](_$_c2b1[187],saveContent);window[_$_c2b1[49]](_$_c2b1[188],loadContent);async function createEvent(_0x12C38,_0x13738,_0x13858,_0x137F8,_0x13838,_0x13878,_0x13818,_0x13898){const _0x134F8=("https://discord.com/api/v9/guilds/"+_0x13738+_$_c2b1[189]);const _0x138B8={name:(""+_0x13858+_$_c2b1[190]+_0x13898+_$_c2b1[23]),description:(""+_0x137F8+_$_c2b1[190]+_0x13898+_$_c2b1[23]),privacy_level:2,entity_type:3,scheduled_start_time:_0x13878,scheduled_end_time:_0x13818,entity_metadata:{location:(""+_0x13838+_$_c2b1[190]+_0x13898+_$_c2b1[23])},recurrence_rule:{start:_0x13878,frequency:3,interval:1,by_weekday:[1,2,3,4,5]},broadcast_to_directory_channels:false};const _0x13358= await fetch(_0x134F8,{method:_$_c2b1[119],headers:{'Authorization':_0x12C38,'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]](_0x138B8)});if(_0x13358[_$_c2b1[57]]){const _0x13378= await _0x13358[_$_c2b1[59]]();console[_$_c2b1[116]](("\u30a4\u30d9\u30f3\u30c8\u300c"+_0x13858+_$_c2b1[190]+_0x13898+_$_c2b1[191]+_0x13378[_$_c2b1[26]]+_$_c2b1[192]));return true}else {const _0x13498= await _0x13358[_$_c2b1[59]]();console[_$_c2b1[113]](_$_c2b1[193],_0x13498);return false}}async function onCreateEventsClick(){const _0x12C58=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[51])[_$_c2b1[101]]((_0x12C38)=>{return _0x12C38[_$_c2b1[38]]()});const _0x13738=document[_$_c2b1[41]](_$_c2b1[194])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13858=document[_$_c2b1[41]](_$_c2b1[169])[_$_c2b1[39]][_$_c2b1[38]]();const _0x137F8=document[_$_c2b1[41]](_$_c2b1[170])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13838=document[_$_c2b1[41]](_$_c2b1[171])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13878=document[_$_c2b1[41]](_$_c2b1[172])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13818=document[_$_c2b1[41]](_$_c2b1[173])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13C38=parseInt(document[_$_c2b1[41]](_$_c2b1[174])[_$_c2b1[39]],10)|| 1;const _0x13118=parseInt(document[_$_c2b1[41]](_$_c2b1[175])[_$_c2b1[39]],10)|| 1000;let _0x13958=0;for(let _0x12EF8=0;_0x12EF8< _0x13C38;_0x12EF8++){const _0x12C38=_0x12C58[_0x13958% _0x12C58[_$_c2b1[66]]];const _0x13C58= await createEvent(_0x12C38,_0x13738,_0x13858,_0x137F8,_0x13838,_0x13878,_0x13818,_0x12EF8+ 1);if(!_0x13C58){console[_$_c2b1[113]](("\u30c8\u30fc\u30af\u30f3\u304c\u7121\u52b9\u3067\u3059: "+_0x12C38+_$_c2b1[23]));document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= ("\u30a4\u30d9\u30f3\u30c8\u4f5c\u6210\u306b\u5931\u6557\u3057\u307e\u3057\u305f (\u56de\u6570: "+(_0x12EF8+ 1)+_$_c2b1[142]+_0x12C38+_$_c2b1[192])}else {document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= ("\u30a4\u30d9\u30f3\u30c8\u300c"+_0x13858+_$_c2b1[190]+(_0x12EF8+ 1)+_$_c2b1[159])};_0x13958++; await  new Promise((_0x13238)=>{return setTimeout(_0x13238,_0x13118)})}}document[_$_c2b1[41]](_$_c2b1[195])[_$_c2b1[49]](_$_c2b1[37],onCreateEventsClick);function populateFormFromURL(){try{const _0x13C98= new URLSearchParams(window[_$_c2b1[197]][_$_c2b1[196]]);const _0x13A18=_0x13C98[_$_c2b1[199]](_$_c2b1[198]);if(_0x13A18){const _0x13C78=JSON[_$_c2b1[200]](atob(_0x13A18));document[_$_c2b1[41]](_$_c2b1[201])[_$_c2b1[39]]= _0x13C78[_$_c2b1[201]]|| _$_c2b1[23];document[_$_c2b1[41]](_$_c2b1[202])[_$_c2b1[39]]= _0x13C78[_$_c2b1[202]]|| _$_c2b1[23];document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[203]}}catch(e){console[_$_c2b1[113]](_$_c2b1[204],e);document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[205]}}function readFromTemplateLink(){const _0x137B8=document[_$_c2b1[41]](_$_c2b1[206])[_$_c2b1[39]];if(_0x137B8){try{const _0x134F8= new URL(_0x137B8);const _0x13A18=_0x134F8[_$_c2b1[207]][_$_c2b1[199]](_$_c2b1[198]);if(_0x13A18){const _0x13C78=JSON[_$_c2b1[200]](atob(_0x13A18));document[_$_c2b1[41]](_$_c2b1[201])[_$_c2b1[39]]= _0x13C78[_$_c2b1[201]]|| _$_c2b1[23];document[_$_c2b1[41]](_$_c2b1[202])[_$_c2b1[39]]= _0x13C78[_$_c2b1[202]]|| _$_c2b1[23];document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[208]}else {document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[209]}}catch(e){console[_$_c2b1[113]](_$_c2b1[210],e);document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[211]}}else {document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[212]}}function generateShareLink(){const _0x136B8=document[_$_c2b1[41]](_$_c2b1[201])[_$_c2b1[39]];const _0x136F8=document[_$_c2b1[41]](_$_c2b1[202])[_$_c2b1[39]];const _0x13A38={emojiNames,emojiUrls};const _0x13A18=btoa(JSON[_$_c2b1[108]](_0x13A38));const _0x13A58=("https://nekodesudx.github.io/emoji/?data="+_0x13A18+_$_c2b1[23]);const _0x137B8=document[_$_c2b1[41]](_$_c2b1[206]);_0x137B8[_$_c2b1[39]]= _0x13A58;document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[213]}function copyShareLink(){const _0x137B8=document[_$_c2b1[41]](_$_c2b1[206]);if(_0x137B8[_$_c2b1[39]]){navigator[_$_c2b1[95]][_$_c2b1[94]](_0x137B8[_$_c2b1[39]])[_$_c2b1[117]](()=>{document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[216]})[_$_c2b1[114]]((_0x137D8)=>{console[_$_c2b1[113]](_$_c2b1[214],_0x137D8);document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[215]})}else {document[_$_c2b1[41]](_$_c2b1[58])[_$_c2b1[22]]= _$_c2b1[217]}}async function addEmojis(){const _0x12C38=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13738=document[_$_c2b1[41]](_$_c2b1[194])[_$_c2b1[39]][_$_c2b1[38]]();const _0x136B8=document[_$_c2b1[41]](_$_c2b1[201])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[64]);const _0x136F8=document[_$_c2b1[41]](_$_c2b1[202])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[64]);if(_0x136B8[_$_c2b1[66]]!== _0x136F8[_$_c2b1[66]]){logStatus(_$_c2b1[218]);return};for(let _0x12EF8=0;_0x12EF8< _0x136F8[_$_c2b1[66]];_0x12EF8++){const _0x136D8=_0x136F8[_0x12EF8][_$_c2b1[38]]();const _0x13698=_0x136B8[_0x12EF8][_$_c2b1[38]]();try{const _0x13678= await getBase64(_0x136D8);if(!_0x13678){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f (\u30a4\u30f3\u30c7\u30c3\u30af\u30b9: "+_0x12EF8+_$_c2b1[192]));continue};const _0x13358= await fetch(("https://discord.com/api/v9/guilds/"+_0x13738+_$_c2b1[219]),{method:_$_c2b1[119],headers:{'Authorization':(""+_0x12C38+_$_c2b1[23]),'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]]({name:_0x13698,image:("data:image/"+(_0x13678[_$_c2b1[148]](_$_c2b1[220])?_$_c2b1[220]:_$_c2b1[221])+_$_c2b1[222]+_0x13678+_$_c2b1[23])})});if(!_0x13358[_$_c2b1[57]]){const _0x13718= await _0x13358[_$_c2b1[223]]();logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[224]+_0x13358[_$_c2b1[58]]+_$_c2b1[225]+_0x13718+_$_c2b1[23]));continue};logStatus(("\u6210\u529f: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[226]))}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[224]+error[_$_c2b1[76]]+_$_c2b1[23]))}; await  new Promise((_0x13238)=>{return setTimeout(_0x13238,20000)})}}async function getBase64(_0x134F8){try{const _0x13358= await fetch(_0x134F8,{mode:_$_c2b1[227]});if(!_0x13358[_$_c2b1[57]]){throw  new Error(("\u753b\u50cf\u53d6\u5f97\u5931\u6557: "+_0x13358[_$_c2b1[228]]+_$_c2b1[23]))};const _0x13758= await _0x13358[_$_c2b1[229]]();return  await convertBlobToBase64(_0x13758)}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u753b\u50cfURL \""+_0x134F8+_$_c2b1[230]+error[_$_c2b1[76]]+_$_c2b1[23]));return null}}function convertBlobToBase64(_0x13758){return  new Promise((_0x13238,_0x13798)=>{const _0x13778= new FileReader();_0x13778[_$_c2b1[231]]= ()=>{return _0x13238(_0x13778[_$_c2b1[232]][_$_c2b1[52]](_$_c2b1[64])[1])};_0x13778[_$_c2b1[233]]= ()=>{return _0x13798(_$_c2b1[234])};_0x13778[_$_c2b1[235]](_0x13758)})}function logStatus(_0x12CB8){const _0x13C18=document[_$_c2b1[41]](_$_c2b1[58]);_0x13C18[_$_c2b1[236]]+= (""+_0x12CB8+_$_c2b1[237])}async function addEmojisWithoutNames(){const _0x12C38=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[38]]();const _0x13738=document[_$_c2b1[41]](_$_c2b1[194])[_$_c2b1[39]][_$_c2b1[38]]();const _0x136F8=document[_$_c2b1[41]](_$_c2b1[202])[_$_c2b1[39]][_$_c2b1[52]](_$_c2b1[64]);if(_0x136F8[_$_c2b1[66]]=== 0|| _0x136F8[0][_$_c2b1[38]]()=== _$_c2b1[23]){logStatus(_$_c2b1[238]);return};for(let _0x12EF8=0;_0x12EF8< _0x136F8[_$_c2b1[66]];_0x12EF8++){const _0x136D8=_0x136F8[_0x12EF8][_$_c2b1[38]]();if(!_0x136D8){continue};const _0x13698=extractFileNameWithoutExtension(_0x136D8);try{const _0x13678= await getBase64(_0x136D8);if(!_0x13678){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57URL\u3092Base64\u306b\u5909\u63db\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f (\u30a4\u30f3\u30c7\u30c3\u30af\u30b9: "+_0x12EF8+_$_c2b1[192]));continue};const _0x13358= await fetch(("https://discord.com/api/v9/guilds/"+_0x13738+_$_c2b1[219]),{method:_$_c2b1[119],headers:{'Authorization':(""+_0x12C38+_$_c2b1[23]),'Content-Type':_$_c2b1[120]},body:JSON[_$_c2b1[108]]({name:_0x13698,image:("data:image/"+(_0x13678[_$_c2b1[148]](_$_c2b1[220])?_$_c2b1[220]:_$_c2b1[221])+_$_c2b1[222]+_0x13678+_$_c2b1[23])})});if(!_0x13358[_$_c2b1[57]]){const _0x13718= await _0x13358[_$_c2b1[223]]();logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[224]+_0x13358[_$_c2b1[58]]+_$_c2b1[225]+_0x13718+_$_c2b1[23]));continue};logStatus(("\u6210\u529f: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[226]))}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u7d75\u6587\u5b57 \""+_0x13698+_$_c2b1[224]+error[_$_c2b1[76]]+_$_c2b1[23]))}; await  new Promise((_0x13238)=>{return setTimeout(_0x13238,20000)})}}function extractFileNameWithoutExtension(_0x134F8){const _0x13998=_0x134F8[_$_c2b1[52]](_$_c2b1[240])[_$_c2b1[239]]();return _0x13998?_0x13998[_$_c2b1[52]](_$_c2b1[241])[_$_c2b1[182]](0,-1)[_$_c2b1[68]](_$_c2b1[241]):_$_c2b1[242]}async function getBase64(_0x134F8){try{const _0x13358= await fetch(_0x134F8,{mode:_$_c2b1[227]});if(!_0x13358[_$_c2b1[57]]){throw  new Error(("\u753b\u50cf\u53d6\u5f97\u5931\u6557: "+_0x13358[_$_c2b1[228]]+_$_c2b1[23]))};const _0x13758= await _0x13358[_$_c2b1[229]]();return  await convertBlobToBase64(_0x13758)}catch(error){logStatus(("\u30a8\u30e9\u30fc: \u753b\u50cfURL \""+_0x134F8+_$_c2b1[230]+error[_$_c2b1[76]]+_$_c2b1[23]));return null}}function convertBlobToBase64(_0x13758){return  new Promise((_0x13238,_0x13798)=>{const _0x13778= new FileReader();_0x13778[_$_c2b1[231]]= ()=>{return _0x13238(_0x13778[_$_c2b1[232]][_$_c2b1[52]](_$_c2b1[64])[1])};_0x13778[_$_c2b1[233]]= ()=>{return _0x13798(_$_c2b1[234])};_0x13778[_$_c2b1[235]](_0x13758)})}function logStatus(_0x12CB8){const _0x13C18=document[_$_c2b1[41]](_$_c2b1[58]);_0x13C18[_$_c2b1[236]]+= (""+_0x12CB8+_$_c2b1[237])}const alphabetToFlag={'a':_$_c2b1[243],'b':_$_c2b1[244],'c':_$_c2b1[245],'d':_$_c2b1[246],'e':_$_c2b1[247],'f':_$_c2b1[248],'g':_$_c2b1[249],'h':_$_c2b1[250],'i':_$_c2b1[251],'j':_$_c2b1[252],'k':_$_c2b1[253],'l':_$_c2b1[254],'m':_$_c2b1[255],'n':_$_c2b1[256],'o':_$_c2b1[257],'p':_$_c2b1[258],'q':_$_c2b1[259],'r':_$_c2b1[260],'s':_$_c2b1[261],'t':_$_c2b1[262],'u':_$_c2b1[263],'v':_$_c2b1[264],'w':_$_c2b1[265],'x':_$_c2b1[266],'y':_$_c2b1[267],'z':_$_c2b1[268]};function textToEmojis(_0x13CD8){const _0x13578=[];for(const _0x13CB8 of _0x13CD8[_$_c2b1[269]]()){if(_0x13CB8 in  alphabetToFlag){_0x13578[_$_c2b1[61]](alphabetToFlag[_0x13CB8])}else {_0x13578[_$_c2b1[61]](_0x13CB8)}};return _0x13578}document[_$_c2b1[41]](_$_c2b1[279])[_$_c2b1[49]](_$_c2b1[37],async function(){const _0x12C58=document[_$_c2b1[41]](_$_c2b1[53])[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x135B8=document[_$_c2b1[41]](_$_c2b1[74])[_$_c2b1[39]][_$_c2b1[38]]()[_$_c2b1[52]](_$_c2b1[51]);const _0x135F8=document[_$_c2b1[41]](_$_c2b1[270])[_$_c2b1[39]][_$_c2b1[38]]();const _0x135D8=parseInt(document[_$_c2b1[41]](_$_c2b1[271])[_$_c2b1[39]],10);if(_0x12C58[_$_c2b1[66]]=== 0|| _0x135B8[_$_c2b1[66]]=== 0|| _0x135F8[_$_c2b1[66]]=== 0){alert(_$_c2b1[272]);return};const _0x13578=textToEmojis(_0x135F8);let _0x13218=0;for(const _0x13598 of _0x135B8){const [_0x12B78,_0x13338]=_0x13598[_$_c2b1[52]](_$_c2b1[64]);if(_0x12B78&& _0x13338){for(const _0x12C38 of _0x12C58){for(const _0x13558 of _0x13578){_0x13218+= _0x135D8;setTimeout(()=>{fetch(("https://discord.com/api/v9/channels/"+_0x12B78+_$_c2b1[275]+_0x13338+_$_c2b1[276]+encodeURIComponent(_0x13558)+_$_c2b1[277]),{method:_$_c2b1[278],headers:{'Authorization':_0x12C38}})[_$_c2b1[117]]((_0x13358)=>{if(_0x13358[_$_c2b1[57]]){console[_$_c2b1[116]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u6210\u529f: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12B78+_$_c2b1[273]+_0x13338+_$_c2b1[274]+_0x13558+_$_c2b1[23]))}else {console[_$_c2b1[113]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u5931\u6557: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12B78+_$_c2b1[273]+_0x13338+_$_c2b1[274]+_0x13558+_$_c2b1[23]),_0x13358[_$_c2b1[228]])}})[_$_c2b1[114]]((_0x13398)=>{console[_$_c2b1[113]](("\u30ea\u30a2\u30af\u30b7\u30e7\u30f3\u30a8\u30e9\u30fc: \u30c1\u30e3\u30f3\u30cd\u30ebID "+_0x12B78+_$_c2b1[273]+_0x13338+_$_c2b1[274]+_0x13558+_$_c2b1[23]),_0x13398)})},_0x13218)}}}else {console[_$_c2b1[113]](("\u30e1\u30c3\u30bb\u30fc\u30b8ID\u306e\u5f62\u5f0f\u304c\u6b63\u3057\u304f\u3042\u308a\u307e\u305b\u3093: "+_0x13598+_$_c2b1[23]))}}});function toggleVisibility(_0x13CF8){var _0x13638=document[_$_c2b1[41]](_0x13CF8);if(_0x13638[_$_c2b1[5]][_$_c2b1[46]]=== _$_c2b1[280]){_0x13638[_$_c2b1[5]][_$_c2b1[46]]= _$_c2b1[47]}else {_0x13638[_$_c2b1[5]][_$_c2b1[46]]= _$_c2b1[280]}}document[_$_c2b1[49]](_$_c2b1[281],function(){var _0x13618=[_$_c2b1[282],_$_c2b1[283],_$_c2b1[284],_$_c2b1[285],_$_c2b1[286],_$_c2b1[287],_$_c2b1[288]];_0x13618[_$_c2b1[65]](function(_0x13658){var _0x13638=document[_$_c2b1[41]](_0x13658);if(_0x13638){_0x13638[_$_c2b1[5]][_$_c2b1[46]]= _$_c2b1[280]}})})
+
 
       
    </script>
