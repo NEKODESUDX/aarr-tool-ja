@@ -296,13 +296,21 @@ button:disabled {
     </div>
 <div id="reactionSettings" class="card">
     <p>リアクション設定</p>
+<br>
     <label for="standardReactionEmojis">標準絵文字:</label>
+<br>
     <textarea id="standardReactionEmojis" placeholder="標準絵文字をカンマ(,)区切りで入力"></textarea>
-    <label for="customReactionEmojis">カスタム絵文字 (emoji_name:emoji_id):</label>
-    <textarea id="customReactionEmojis" placeholder="カスタム絵文字をカンマ(,)区切りで入力"></textarea>
-    <label for="reactionDelay">リアクション遅延 (ミリ秒):</label>
-    <input type="number" id="reactionDelay" value="1000" min="0">
-    <button id="reactButton">リアクション送信開始</button>
+<br>    
+<label for="customReactionEmojis">カスタム絵文字 (emoji_name:emoji_id):</label>
+<br>   
+ <textarea id="customReactionEmojis" placeholder="カスタム絵文字をカンマ(,)区切りで入力"></textarea>
+<br>   
+ <label for="reactionDelay">リアクション遅延 (ミリ秒):</label>
+<br>   
+ <input type="number" id="reactionDelay" value="1000" min="0">
+<br>  
+  <button id="reactButton">リアクション送信開始</button>
+<br>
 </div>
 <div class="button-container">
 <button onclick="toggleVisibility('threadSettings')">スレッド設定表示/非表示</button>
